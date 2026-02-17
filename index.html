@@ -87,7 +87,14 @@
 </div>
 
 <header id="header" class="header d-flex align-items-center fixed-top">
-  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+  <div class="header-bar">
+
+    <!-- ✅ Logo à gauche -->
+    <a href="#hero" class="header-logo" aria-label="PurKit">
+      <img src="assets/img/logo.png" alt="PurKit">
+    </a>
+
+    <!-- ✅ Menu au centre -->
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active" data-i18n="nav.home">Accueil</a></li>
@@ -97,24 +104,24 @@
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
 
-      <div class="lang-switch d-flex align-items-center">
-        <button class="lang-btn active" type="button" data-lang="fr">FR</button>
-        <button class="lang-btn" type="button" data-lang="en">EN</button>
-      </div>
-
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
+
+    <!-- ✅ Langue à droite -->
+    <div class="lang-switch">
+      <button class="lang-btn active" type="button" data-lang="fr">FR</button>
+      <button class="lang-btn" type="button" data-lang="en">EN</button>
+    </div>
+
   </div>
+
+
 </header>
 
 <main class="main">
 
   <section id="hero" class="hero section dark-background">
     <img src="assets/img/beautiful-kitchen-interior-design.jpg" alt="" data-aos="fade-in">
-
-    <div class="hero-logo-overlay" data-aos="fade-down" data-aos-delay="50">
-      <img src="assets/img/logoNoBg.png" alt="PurKit" class="hero-logo" />
-    </div>
 
     <div class="container hero-content" data-aos="fade-up" data-aos-delay="200">
       <p class="hero-subtitle" data-i18n="hero.subtitle">
