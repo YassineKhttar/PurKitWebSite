@@ -13,839 +13,330 @@
         content="PurKit, cuisine, microplastiques, contaminants, PTFE, PFAS, entretien, ustensiles, poêles, contenants"
         data-i18n="meta.keywords" data-i18n-attr="content">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Raleway:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Raleway:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/purkit.css" rel="stylesheet">
 
-  <!-- ✅ PurKit overrides: beige + green + header scroll fix -->
   <style>
-    :root {
-      --background-color: #f7f1e6;
-      --surface-color: #fffaf2;
-      --default-color: #2f2f2f;
-      --heading-color: #1f2a22;
-
-      --accent-color: #4f8f63;
-      --contrast-color: #ffffff;
-
-      --nav-color: #eef3ee;
-      --nav-hover-color: #a8d5b5;
-      --nav-dropdown-background-color: #fffaf2;
-      --nav-dropdown-color: #2f2f2f;
-      --nav-dropdown-hover-color: #4f8f63;
-
-      scroll-behavior: smooth;
-    }
-
-    .light-background {
-      --background-color: #f7f1e6;
-      --surface-color: #fffaf2;
-    }
-
-    .dark-background {
-      --background-color: #203126;
-      --default-color: #ffffff;
-      --heading-color: #ffffff;
-      --surface-color: rgba(255, 250, 242, 0.08);
-      --contrast-color: #ffffff;
-    }
-
-    /* Header: initial transparent, but NOT blue on scroll */
-    .header {
-      --background-color: rgba(0, 0, 0, 0);
-      --default-color: #ffffff;
-      --heading-color: #ffffff;
-    }
-
-    .scrolled .header {
-      --background-color: rgba(32, 49, 38, 0.96);
-      box-shadow: 0px 0 18px rgba(0, 0, 0, 0.12);
-      backdrop-filter: blur(6px);
-    }
-
-    /* Ensure no CTA button in header */
-    .header .cta-btn {
-      display: none !important;
-    }
-
-    /* Language switch */
-    .lang-switch {
-      gap: 8px;
-      margin-left: 12px;
-    }
-
-    .lang-switch .lang-btn{
-      border: 1px solid color-mix(in srgb, var(--default-color), transparent 60%);
-      background: color-mix(in srgb, var(--surface-color), transparent 10%);
-      color: var(--default-color);
-      padding: 6px 10px;
-      font-size: 12px;
-      border-radius: 8px;
-      transition: .2s;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .lang-switch .lang-btn:hover{
-      border-color: var(--accent-color);
-      color: var(--accent-color);
-    }
-
-    .lang-switch .lang-btn.active{
-      background: var(--accent-color);
-      border-color: var(--accent-color);
-      color: var(--contrast-color);
-    }
-
-    /* Service cards */
-    .service-card {
-      background: var(--surface-color);
-      border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.06);
-      height: 100%;
-      transition: transform .25s ease, box-shadow .25s ease;
-      padding: 22px;
-    }
-
-    .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0px 14px 34px rgba(0, 0, 0, 0.10);
-    }
-
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: inline-flex;
+    .pk-leave-overlay{
+      position: fixed;
+      inset: 0;
+      display: none;
       align-items: center;
       justify-content: center;
-      background: color-mix(in srgb, var(--accent-color), transparent 80%);
-      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 55%);
-      margin-bottom: 14px;
-      color: var(--heading-color);
+      background: rgba(32,49,38,.92);
+      color: #fff;
+      z-index: 9999;
+      text-align: center;
+      padding: 24px;
     }
-
-    .service-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .service-card p {
-      margin-bottom: 12px;
-      color: color-mix(in srgb, var(--default-color), transparent 20%);
-    }
-
-    .service-card ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    .service-card li {
-      margin-bottom: 8px;
-    }
-
-    /* Products cards */
-    .product-card {
-      background: var(--surface-color);
-      border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.06);
-      height: 100%;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0px 14px 34px rgba(0, 0, 0, 0.10);
-    }
-
-    .product-card img {
+    .pk-leave-overlay.show{ display: flex; }
+    .pk-leave-overlay .box{
+      max-width: 520px;
       width: 100%;
-      height: 260px;
-      object-fit: cover;
     }
-
-    .product-card .content {
-      padding: 18px;
+    .pk-leave-overlay .spinner{
+      width: 44px;
+      height: 44px;
+      border: 4px solid rgba(255,255,255,.25);
+      border-top-color: rgba(255,255,255,.95);
+      border-radius: 50%;
+      margin: 0 auto 14px auto;
+      animation: pkspin .8s linear infinite;
     }
-
-    .product-card .badge {
-      background: color-mix(in srgb, var(--accent-color), transparent 70%);
-      color: var(--heading-color);
-      font-weight: 600;
-      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 55%);
-    }
-
-    /* Shopify embed */
-    .shopify-embed {
-      background: var(--surface-color);
-      border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.06);
-      min-height: 70vh;
-    }
-
-    .shopify-embed iframe {
-      width: 100%;
-      height: 75vh;
-      border: 0;
-      display: block;
-      background: #fff;
-    }
-
-    /* Small helper text */
-    .muted {
-      color: color-mix(in srgb, var(--default-color), transparent 30%);
-    }
-
-    /* --- Mini fiches e-commerce styles (si tu n'as pas déjà) --- */
-    .product-sheet.ecommerce{
-      background: var(--surface-color);
-      border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-      border-radius: 14px;
-      box-shadow: 0px 8px 24px rgba(0,0,0,.06);
-      padding: 18px;
-      position: relative;
-      height: 100%;
-    }
-    .product-sheet.ecommerce .top{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-      margin-bottom: 10px;
-    }
-    .product-sheet.ecommerce .badges{ display:flex; gap:8px; flex-wrap:wrap; }
-    .pk-badge{
-      display:inline-flex; align-items:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      background: color-mix(in srgb, var(--accent-color), transparent 80%);
-      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 55%);
-      color: var(--heading-color);
-    }
-    .pk-badge.outline{
-      background: transparent;
-      border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-      color: var(--default-color);
-    }
-    .pk-chip{
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      background: color-mix(in srgb, var(--default-color), transparent 92%);
-      border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-      white-space: nowrap;
-    }
-    .product-sheet.ecommerce .hook{
-      color: color-mix(in srgb, var(--default-color), transparent 15%);
-    }
-    .pk-list{ margin:0 0 12px 0; padding-left: 18px; }
-    .pk-list li{ margin-bottom: 8px; }
-    .includes{
-      border-top: 1px dashed color-mix(in srgb, var(--default-color), transparent 75%);
-      margin-top: 12px;
-      padding-top: 12px;
-    }
-    .includes-title{ font-weight: 800; margin-bottom: 8px; }
-    .includes-tags{ display:flex; flex-wrap:wrap; gap:8px; }
-    .includes-tags span{
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      background: color-mix(in srgb, var(--accent-color), transparent 88%);
-      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
-    }
-    .note{ font-size: 12px; margin-top: 8px; color: color-mix(in srgb, var(--default-color), transparent 35%); }
-    .bottom{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      margin-top: 14px;
-    }
-    .value-title{ font-weight: 800; font-size: 13px; }
-    .value-text{ font-size: 13px; color: color-mix(in srgb, var(--default-color), transparent 15%); }
-    .pk-cta{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 10px 14px;
-      border-radius: 12px;
+    @keyframes pkspin{ to{ transform: rotate(360deg);} }
+    .pk-leave-overlay .title{
       font-weight: 800;
-      background: var(--accent-color);
-      color: var(--contrast-color);
-      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 30%);
-      text-decoration:none;
-      white-space: nowrap;
+      font-size: 18px;
+      margin: 0 0 6px 0;
     }
-    .product-sheet.featured{
-      border-color: color-mix(in srgb, var(--accent-color), transparent 45%);
-      box-shadow: 0px 14px 34px rgba(0,0,0,.10);
-    }
-    .ribbon{
-      position:absolute; top: 14px; right: 14px;
-      background: var(--accent-color);
-      color: var(--contrast-color);
-      font-size: 12px;
-      font-weight: 900;
-      padding: 6px 10px;
-      border-radius: 999px;
+    .pk-leave-overlay .sub{
+      margin: 0;
+      opacity: .9;
+      font-size: 14px;
     }
   </style>
 </head>
 
 <body class="index-page">
 
+<div class="pk-leave-overlay" id="pkLeaveOverlay" aria-hidden="true">
+  <div class="box">
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="title" data-i18n="buy.redirectTitle">Redirection vers la boutique…</p>
+    <p class="sub" data-i18n="buy.redirectSub">Vous allez être dirigé vers Shopify</p>
+  </div>
+</div>
+
 <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-    <a href="index.html" class="logo d-flex align-items-center me-auto">
-      <h1 class="sitename">PurKit</h1>
-    </a>
-
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active" data-i18n="nav.home">Accueil</a></li>
         <li><a href="#about" data-i18n="nav.about">À propos</a></li>
-        <li><a href="#services" data-i18n="nav.services">Services</a></li>
-        <li><a href="#products" data-i18n="nav.products">Produits</a></li>
-        <li><a href="#team" data-i18n="nav.team">Équipe</a></li>
-        <li><a href="#buy" data-i18n="nav.buy">Acheter</a></li>
+        <li><a href="#products" data-i18n="nav.shop">Produits</a></li>
+        <li><a href="#resources" data-i18n="nav.services">Ressources</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
+
+      <div class="lang-switch d-flex align-items-center">
+        <button class="lang-btn active" type="button" data-lang="fr">FR</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
-
-    <!-- Language -->
-    <div class="lang-switch d-flex align-items-center">
-      <button class="lang-btn active" type="button" data-lang="fr">FR</button>
-      <button class="lang-btn" type="button" data-lang="en">EN</button>
-    </div>
-
   </div>
 </header>
 
 <main class="main">
 
-  <!-- Hero -->
   <section id="hero" class="hero section dark-background">
     <img src="assets/img/beautiful-kitchen-interior-design.jpg" alt="" data-aos="fade-in">
-    <div class="container d-flex flex-column align-items-center">
-      <h2 data-aos="fade-up" data-aos-delay="100" data-i18n="hero.title">PurKit</h2>
-      <p data-aos="fade-up" data-aos-delay="200" data-i18n="hero.subtitle">
-        Des kits de cuisine pensés pour cuisiner plus sainement, entretenir vos outils, et réduire l’exposition aux microplastiques.
+    <div class="container hero-content" data-aos="fade-up" data-aos-delay="200">
+      <div class="hero-logo-inline" data-aos="fade-down" data-aos-delay="50">
+        <img src="assets/img/logoNoBg.png" alt="PurKit" class="hero-logo" />
+      </div>
+
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        Des kits de cuisine pensés pour un quotidien plus sain
       </p>
-      <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+
+      <div class="hero-actions d-flex" data-aos="fade-up" data-aos-delay="300">
         <a href="#products" class="btn-get-started" data-i18n="hero.ctaKits">Voir les kits</a>
 
         <a href="https://www.youtube.com/watch?v=_6EHNWJGY6M"
            class="glightbox btn-watch-video d-flex align-items-center">
-          <i class="bi bi-play-circle"></i><span data-i18n="hero.video">Qu’est-ce que les microplastiques&nbsp;?</span>
+          <i class="bi bi-play-circle"></i>
+          <span data-i18n="hero.video">Qu’est-ce que les microplastiques&nbsp;?</span>
         </a>
 
-        <a href="#buy" class="btn-watch-video d-flex align-items-center">
-          <i class="bi bi-bag"></i><span data-i18n="hero.ctaBuy">Acheter</span>
+        <a href="https://purkit-2.myshopify.com" class="btn-watch-video d-flex align-items-center pk-shop-link">
+          <i class="bi bi-bag"></i>
+          <span data-i18n="hero.ctaBuy">Acheter</span>
         </a>
       </div>
-
     </div>
-  </section><!-- /Hero -->
+  </section>
 
-  <!-- About -->
   <section id="about" class="about section">
     <div class="container">
-      <div class="row gy-4">
+      <div class="row gy-4 align-items-center">
+
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 data-i18n="about.h3">Un kit et des guides clairs, pour une cuisine plus consciente.</h3>
-          <img src="assets/img/about.jpg" class="img-fluid rounded-4 mb-4" alt="">
+          <h3 data-i18n="about.h3">Notre produit</h3>
+
           <p data-i18n="about.p1">
-            PurKit regroupe des articles utiles (poêles, contenants, accessoires) et des guides simples pour
-            améliorer tes habitudes : cuisson, nettoyage, entretien et précautions au quotidien.
+            PurKit propose des kits regroupant plusieurs produits du quotidien, soigneusement sélectionnés comme des alternatives plus saines et tout aussi efficaces. Chaque kit est conçu pour remplacer facilement des produits courants, sans compliquer vos habitudes.
           </p>
+
+          <h4 class="mt-4" data-i18n="about.h4a">Les bienfaits</h4>
           <p data-i18n="about.p2">
-            L’objectif : réduire les sources courantes d’exposition (microplastiques, usure de revêtements, contamination croisée)
-            sans tomber dans la perfection — juste de meilleurs choix, réalistes et durables.
+            Les produits inclus dans les kits aident à réduire l’exposition aux microplastiques et à d’autres substances fréquemment présentes dans les produits traditionnels. Chaque kit est accompagné de guides simples et pratiques pour encourager de meilleures habitudes au quotidien.
           </p>
+
+          <h4 class="mt-4" data-i18n="about.h4b">L’avantage PurKit</h4>
+          <p data-i18n="about.p3">
+            Avec PurKit, plus besoin de passer des heures à comparer les options. Tout est déjà sélectionné et regroupé au même endroit pour vous faire gagner du temps et simplifier la transition vers des choix plus sains.
+          </p>
+
         </div>
 
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-          <div class="content ps-0 ps-lg-5">
-            <p class="fst-italic" data-i18n="about.italic">
-              Des gestes simples, une meilleure longévité des produits, et une cuisine plus saine au quotidien.
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="about.li1">Guides d’instructions pour utiliser et entretenir chaque item.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="about.li2">Conseils pour réduire l’exposition aux microplastiques dans la cuisine.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="about.li3">Bonnes pratiques (températures, matériaux, hygiène, contamination croisée).</span></li>
-            </ul>
-
-            <div class="position-relative mt-4">
-              <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
-              <a href="#services" class="pulsating-play-btn"></a>
-            </div>
-          </div>
+        <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="200">
+          <img src="assets/img/about.jpg" class="img-fluid rounded-4" alt="">
         </div>
+
       </div>
     </div>
-  </section><!-- /About -->
+  </section>
 
-  <!-- Services -->
-  <section id="services" class="section light-background">
+  <section id="products" class="section">
     <div class="container section-title" data-aos="fade-up">
-      <h2 data-i18n="services.h2">Services</h2>
-      <p data-i18n="services.subtitle">GUIDES & RESSOURCES PURKIT</p>
+      <h2 data-i18n="products.h2">Produits</h2>
+      <p data-i18n="products.subtitle">NOS KITS</p>
     </div>
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row gy-4">
 
         <div class="col-lg-4 col-md-6">
-          <div class="service-card">
-            <div class="service-icon"><i class="bi bi-shield-check"></i></div>
-            <h3 data-i18n="services.s1.title">Contaminants au quotidien</h3>
-            <p data-i18n="services.s1.p">
-              Comprendre les sources courantes d’exposition dans la cuisine (microplastiques, matériaux, revêtements) et pourquoi
-              des alternatives simples peuvent faire une différence.
-            </p>
-            <ul>
-              <li data-i18n-html="services.s1.li1"><strong>Microplastiques :</strong> exposition fréquente via plastique chauffé, ustensiles/planches plastiques, eau et air intérieur.</li>
-              <li data-i18n-html="services.s1.li2"><strong>Présence dans le corps :</strong> détectés dans le sang, poumons, placenta et lait maternel selon des études récentes.</li>
-              <li data-i18n-html="services.s1.li3"><strong>PTFE / PFAS :</strong> certaines poêles antiadhésives (revêtement PTFE) peuvent se dégrader à haute température (~260°C+) et s’user.</li>
-              <li data-i18n-html="services.s1.li4"><strong>Approche :</strong> réduire l’exposition quand des options réalistes existent (matériaux plus durables, bonnes pratiques).</li>
-            </ul>
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="assets/img/products/purkit-starter.jpg" class="card-img-top" alt="Kit Démarrage" style="height:260px;object-fit:cover;">
+            <div class="card-body">
+              <span class="badge rounded-pill mb-2" style="background: color-mix(in srgb, var(--accent-color), transparent 70%); color: var(--heading-color); font-weight: 700;">Basic</span>
+              <h3 class="h5 mb-2" data-i18n="products.card1.title">Kit Démarrage</h3>
+              <p class="mb-3 muted" data-i18n="products.card1.desc">Un kit simple et efficace pour commencer avec de meilleures habitudes.</p>
+              <a href="https://purkit-2.myshopify.com/products/kit-demarrage" class="btn-get-started pk-shop-link" data-i18n="products.buyBtn">Acheter</a>
+            </div>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6">
-          <div class="service-card">
-            <div class="service-icon"><i class="bi bi-journal-text"></i></div>
-            <h3 data-i18n="services.s2.title">Guide d’instructions PurKit</h3>
-            <p data-i18n="services.s2.p">
-              Instructions simples et claires pour utiliser et entretenir les items du kit afin de cuisiner plus sainement
-              tout en prolongeant leur durée de vie.
-            </p>
-            <ul>
-              <li data-i18n-html="services.s2.li1"><strong>Poêle inox :</strong> préchauffer jusqu’aux “perles d’eau”, huile modérée, cuisson haute température possible.</li>
-              <li data-i18n-html="services.s2.li2"><strong>Poêle céramique :</strong> feu doux/moyen pour préserver le revêtement, éviter les outils abrasifs.</li>
-              <li data-i18n-html="services.s2.li3"><strong>Contenants verre :</strong> laisser reposer 5–10 min avant de fermer (éviter la pression), couvercles à la main.</li>
-              <li data-i18n-html="services.s2.li4"><strong>Planche :</strong> huile minérale (facultatif), dédier une planche à la viande, sécher à l’air (vertical si possible).</li>
-              <li data-i18n-html="services.s2.li5"><strong>Brosse vaisselle :</strong> retirer l’excédent d’eau et laisser sécher rapidement pour limiter le développement bactérien.</li>
-            </ul>
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="assets/img/products/purkit-pro.jpg" class="card-img-top" alt="Kit Avancé" style="height:260px;object-fit:cover;">
+            <div class="card-body">
+              <span class="badge rounded-pill mb-2" style="background: color-mix(in srgb, var(--accent-color), transparent 70%); color: var(--heading-color); font-weight: 700;">Basic Plus</span>
+              <h3 class="h5 mb-2" data-i18n="products.card2.title">Kit Avancé</h3>
+              <p class="mb-3 muted" data-i18n="products.card2.desc">Pour une cuisine plus régulière : plus d’options et une routine plus stable.</p>
+              <a href="https://purkit-2.myshopify.com/products/kit-avance" class="btn-get-started pk-shop-link" data-i18n="products.buyBtn">Acheter</a>
+            </div>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6">
-          <div class="service-card">
-            <div class="service-icon"><i class="bi bi-droplet-half"></i></div>
-            <h3 data-i18n="services.s3.title">Réduire l’exposition, simplement</h3>
-            <p data-i18n="services.s3.p">
-              Mesures additionnelles faciles à intégrer : pas la perfection, mais des choix plus conscients et durables
-              pour améliorer graduellement l’environnement intérieur.
-            </p>
-            <ul>
-              <li data-i18n-html="services.s3.li1"><strong>Cuisine :</strong> éviter le plastique à la chaleur (micro-ondes / four / aliments chauds).</li>
-              <li data-i18n-html="services.s3.li2"><strong>Eau :</strong> filtration certifiée; bouilloires/carafes/gourdes sans plastique en contact avec l’eau chaude.</li>
-              <li data-i18n-html="services.s3.li3"><strong>Bouteilles :</strong> limiter l’usage unique; privilégier l’inox pour l’eau quotidienne.</li>
-              <li data-i18n-html="services.s3.li4"><strong>Lessive :</strong> laver synthétiques moins souvent, à froid, cycles doux; sacs capteurs de microfibres.</li>
-              <li data-i18n-html="services.s3.li5"><strong>Ménage :</strong> limiter aérosols parfumés; aérer; aspirateur HEPA; méthodes humides plutôt qu’à sec.</li>
-            </ul>
+          <div class="card h-100 border-0 shadow-sm">
+            <img src="assets/img/products/purkit-family.jpg" class="card-img-top" alt="Kit Premium" style="height:260px;object-fit:cover;">
+            <div class="card-body">
+              <span class="badge rounded-pill mb-2" style="background: color-mix(in srgb, var(--accent-color), transparent 70%); color: var(--heading-color); font-weight: 700;">Premium</span>
+              <h3 class="h5 mb-2" data-i18n="products.card3.title">Kit Premium</h3>
+              <p class="mb-3 muted" data-i18n="products.card3.desc">Pensé pour les familles : organisation, durabilité et usage quotidien.</p>
+              <a href="https://purkit-2.myshopify.com/products/kit-premium" class="btn-get-started pk-shop-link" data-i18n="products.buyBtn">Acheter</a>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <div class="row mt-4">
-        <div class="col-lg-10 mx-auto text-center">
-          <p class="muted mb-0" data-i18n="services.note">
-          </p>
+      <div class="mt-5" id="shop">
+        <div class="shopify-embed" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-center">
+            <a class="btn-get-started pk-shop-link" href="https://purkit-2.myshopify.com" data-i18n="buy.goShop">
+              Aller à la boutique
+            </a>
+          </div>
         </div>
       </div>
 
     </div>
-  </section><!-- /Services -->
+  </section>
 
-  <!-- Features -->
-  <section id="features" class="features section">
+  <section id="resources" class="features section light-background">
+    <div class="container section-title" data-aos="fade-up">
+      <h2 data-i18n="resources.h2">Ressources</h2>
+      <p data-i18n="resources.subtitle">GUIDES & INFORMATIONS</p>
+    </div>
+
     <div class="container">
-
       <ul class="nav nav-tabs row d-flex" data-aos="fade-up" data-aos-delay="100">
-        <li class="nav-item col-3">
-          <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-            <i class="bi bi-tools"></i>
-            <h4 class="d-none d-lg-block" data-i18n="features.tab1">Bonnes pratiques</h4>
+        <li class="nav-item col-6 col-md-4">
+          <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#pk-tab-1">
+            <i class="bi bi-shield-check"></i>
+            <h4 class="d-none d-lg-block" data-i18n="resources.tab1">Contaminants</h4>
           </a>
         </li>
-        <li class="nav-item col-3">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-            <i class="bi bi-recycle"></i>
-            <h4 class="d-none d-lg-block" data-i18n="features.tab2">Moins de plastique</h4>
+
+        <li class="nav-item col-6 col-md-4">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pk-tab-2">
+            <i class="bi bi-journal-text"></i>
+            <h4 class="d-none d-lg-block" data-i18n="resources.tab2">Guide</h4>
           </a>
         </li>
-        <li class="nav-item col-3">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-            <i class="bi bi-thermometer-half"></i>
-            <h4 class="d-none d-lg-block" data-i18n="features.tab3">Températures & matériaux</h4>
-          </a>
-        </li>
-        <li class="nav-item col-3">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4">
-            <i class="bi bi-bag-check"></i>
-            <h4 class="d-none d-lg-block" data-i18n="features.tab4">Acheter</h4>
+
+        <li class="nav-item col-6 col-md-4">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pk-tab-3">
+            <i class="bi bi-droplet-half"></i>
+            <h4 class="d-none d-lg-block" data-i18n="resources.tab3">Réduire</h4>
           </a>
         </li>
       </ul>
 
       <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="tab-pane fade active show" id="features-tab-1">
-          <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-              <h3 data-i18n="features.p1.h3">Des gestes simples qui changent tout</h3>
-              <p class="fst-italic" data-i18n="features.p1.italic">Cuisson, nettoyage, hygiène : on vise la constance, pas la perfection.</p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p1.li1">Entretenir et sécher correctement pour limiter la prolifération microbienne.</span></li>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p1.li2">Éviter les outils abrasifs sur les revêtements sensibles (ex: céramique).</span></li>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p1.li3">Réduire la contamination croisée avec une planche dédiée à la viande.</span></li>
-              </ul>
-              <p class="mb-0" data-i18n="features.p1.p">Tout est détaillé dans la section Services.</p>
+        <div class="tab-pane fade active show" id="pk-tab-1">
+          <div class="row gy-4 align-items-center">
+            <div class="col-lg-6 order-2 order-lg-1">
+              <h3 data-i18n="resources.s1.title">Contaminants au quotidien</h3>
+              <p data-i18n="resources.s1.p1">
+                La cuisine est l’un des principaux environnements d’exposition à certains contaminants du quotidien. Microplastiques, matériaux synthétiques et revêtements peuvent, dans certaines conditions d’usage, contribuer à une exposition répétée. Comprendre ces sources permet d’adopter des alternatives simples qui font une réelle différence à long terme.
+              </p>
+
+              <h5 class="mt-3" data-i18n="resources.s1.h5a">Microplastiques</h5>
+              <p data-i18n="resources.s1.p2">
+                L’exposition est fréquente et provient notamment du chauffage du plastique, de l’utilisation d’ustensiles et de planches en plastique, ainsi que de l’eau potable et de l’air intérieur. Des études récentes ont mis en évidence la présence de microplastiques dans le sang, les poumons, le placenta et le lait maternel, soulignant leur caractère omniprésent.
+              </p>
+
+              <h5 class="mt-3" data-i18n="resources.s1.h5b">PTFE / PFAS</h5>
+              <p data-i18n="resources.s1.p3">
+                Certains revêtements antiadhésifs à base de PTFE peuvent se dégrader lorsqu’ils sont exposés à des températures élevées (environ 260 °C et plus) ou à une usure répétée, augmentant le risque de relargage de composés indésirables au fil du temps.
+              </p>
+
+              <h5 class="mt-3" data-i18n="resources.s1.h5c">Notre approche</h5>
+              <p class="mb-0" data-i18n="resources.s1.p4">
+                L’objectif n’est pas la perfection, mais la réduction de l’exposition lorsque des options réalistes existent. Le choix de matériaux plus durables, combiné à de bonnes pratiques d’utilisation et d’entretien, permet de limiter ces sources courantes sans complexifier le quotidien.
+              </p>
             </div>
+
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="assets/img/working-1.jpg" alt="" class="img-fluid rounded-4">
+              <img src="assets/img/contaminant.png" alt="" class="img-fluid rounded-4">
             </div>
           </div>
         </div>
 
-        <div class="tab-pane fade" id="features-tab-2">
-          <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-              <h3 data-i18n="features.p2.h3">Réduire l’exposition aux microplastiques</h3>
-              <p data-i18n="features.p2.p">Le point le plus “rentable” : <strong>ne pas chauffer le plastique</strong>.</p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p2.li1">Pas de transfert d’aliments chauds dans du plastique.</span></li>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p2.li2">Préférer verre / inox pour eau et aliments.</span></li>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p2.li3">Aérer + nettoyer “humide” pour limiter les particules dans l’air.</span></li>
+        <div class="tab-pane fade" id="pk-tab-2">
+          <div class="row gy-4 align-items-center">
+            <div class="col-lg-6 order-2 order-lg-1">
+              <h3 data-i18n="resources.s2.title">Guide d’instructions PurKit</h3>
+              <p data-i18n="resources.s2.p1">
+                Ce guide présente des consignes simples et concrètes pour utiliser et entretenir les éléments du kit PurKit. L’objectif est de cuisiner plus sainement, tout en préservant la performance et la durabilité des équipements au fil du temps.
+              </p>
+
+              <ul class="mt-3">
+                <li data-i18n-html="resources.s2.li1"><strong>Poêle en acier inoxydable :</strong> Préchauffer jusqu’à l’apparition de légères perles d’eau, ajouter une quantité modérée de matière grasse, puis procéder à la cuisson.</li>
+                <li data-i18n-html="resources.s2.li2"><strong>Poêle à revêtement céramique :</strong> Utiliser une chaleur douce à moyenne. Éviter les outils abrasifs ou métalliques.</li>
+                <li data-i18n-html="resources.s2.li3"><strong>Contenants en verre :</strong> Laisser reposer 5 à 10 minutes avant de fermer. Fermer à la main, sans forcer.</li>
+                <li data-i18n-html="resources.s2.li4"><strong>Planches à découper :</strong> Huile minérale (facultatif). Dédier une planche à la viande crue. Séchage complet à l’air (idéalement vertical).</li>
+                <li data-i18n-html="resources.s2.li5"><strong>Brosse à vaisselle :</strong> Retirer l’excédent d’eau et laisser sécher rapidement pour limiter le développement bactérien.</li>
               </ul>
             </div>
+
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="assets/img/working-2.jpg" alt="" class="img-fluid rounded-4">
+              <img src="assets/img/guide.png" alt="" class="img-fluid rounded-4">
             </div>
           </div>
         </div>
 
-        <div class="tab-pane fade" id="features-tab-3">
-          <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-              <h3 data-i18n="features.p3.h3">Températures, revêtements, durabilité</h3>
-              <p data-i18n="features.p3.p">Bien utiliser ses poêles = meilleure performance + durée de vie + moins d’usure.</p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p3.li1">Inox : haute température possible si bien préchauffé.</span></li>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p3.li2">Céramique : feu doux/moyen pour préserver le revêtement.</span></li>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p3.li3">Antiadhésifs PTFE : éviter la surchauffe et l’usure (rayures, ustensiles inadaptés).</span></li>
+        <div class="tab-pane fade" id="pk-tab-3">
+          <div class="row gy-4 align-items-center">
+            <div class="col-lg-6 order-2 order-lg-1">
+              <h3 data-i18n="resources.s3.title">Réduire l’exposition, simplement</h3>
+              <p data-i18n="resources.s3.p1">
+                Réduire l’exposition au quotidien ne passe pas par la perfection, mais par l’adoption de gestes simples, cohérents et durables. Intégrées progressivement, ces mesures contribuent à améliorer l’environnement intérieur sans alourdir les routines.
+              </p>
+
+              <ul class="mt-3">
+                <li data-i18n-html="resources.s3.li1"><strong>Cuisine :</strong> éviter le plastique exposé à la chaleur. Privilégier verre, inox, céramique pour cuisson et stockage.</li>
+                <li data-i18n-html="resources.s3.li2"><strong>Eau :</strong> filtration certifiée si possible. Favoriser bouilloires/carafes/gourdes sans plastique en contact avec l’eau chaude.</li>
+                <li data-i18n-html="resources.s3.li3"><strong>Bouteilles :</strong> limiter l’usage unique. Opter pour des contenants durables (ex. acier inoxydable).</li>
+                <li data-i18n-html="resources.s3.li4"><strong>Lessive :</strong> laver moins souvent les synthétiques, à froid, cycles doux, sacs capteurs de microfibres.</li>
+                <li data-i18n-html="resources.s3.li5"><strong>Entretien ménager :</strong> limiter les aérosols, aérer, aspirateur HEPA, nettoyage humide plutôt qu’à sec.</li>
               </ul>
             </div>
+
             <div class="col-lg-6 order-1 order-lg-2 text-center">
               <img src="assets/img/working-3.jpg" alt="" class="img-fluid rounded-4">
             </div>
           </div>
         </div>
 
-        <div class="tab-pane fade" id="features-tab-4">
-          <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-              <h3 data-i18n="features.p4.h3">Acheter directement sur la page</h3>
-              <p data-i18n="features.p4.p">Le shop est intégré ci-dessous (section Buy).</p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p4.li1">Navigation simple</span></li>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p4.li2">Expérience fluide</span></li>
-                <li><i class="bi bi-check2-all"></i> <span data-i18n="features.p4.li3">Checkout rapide</span></li>
-              </ul>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="assets/img/working-4.jpg" alt="" class="img-fluid rounded-4">
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- /Features -->
-
-  <!-- Products -->
-  <section id="products" class="section light-background">
-    <div class="container section-title" data-aos="fade-up">
-      <h2 data-i18n="products.h2">Produits</h2>
-      <p data-i18n="products.subtitle">NOS KITS DE CUISINE</p>
-    </div>
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row gy-4">
-
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card">
-            <img src="assets/img/products/purkit-starter.jpg" alt="PurKit Starter">
-            <div class="content">
-              <span class="badge rounded-pill mb-2" data-i18n="products.badgeStarter">Starter</span>
-              <h3 class="mb-2" data-i18n="products.cardStarterTitle">PurKit — Starter</h3>
-              <p class="mb-3" data-i18n="products.cardStarterDesc">Les essentiels pour cuisiner simple, propre, et durable.</p>
-              <a href="#buy" class="btn-get-started" data-i18n="products.buyBtn">Acheter</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card">
-            <img src="assets/img/products/purkit-pro.jpg" alt="PurKit Pro">
-            <div class="content">
-              <span class="badge rounded-pill mb-2" data-i18n="products.badgePro">Pro</span>
-              <h3 class="mb-2" data-i18n="products.cardProTitle">PurKit — Pro</h3>
-              <p class="mb-3" data-i18n="products.cardProDesc">Plus d’options, plus de contrôle : cuisson + entretien optimisés.</p>
-              <a href="#buy" class="btn-get-started" data-i18n="products.buyBtn">Acheter</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card">
-            <img src="assets/img/products/purkit-family.jpg" alt="PurKit Family">
-            <div class="content">
-              <span class="badge rounded-pill mb-2" data-i18n="products.badgeFamily">Family</span>
-              <h3 class="mb-2" data-i18n="products.cardFamilyTitle">PurKit — Family</h3>
-              <p class="mb-3" data-i18n="products.cardFamilyDesc">Pensé pour meal-prep, grandes portions et organisation.</p>
-              <a href="#buy" class="btn-get-started" data-i18n="products.buyBtn">Acheter</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Mini fiches e-commerce -->
-      <div class="row mt-5 gy-4" data-aos="fade-up" data-aos-delay="150">
-
-        <div class="col-lg-4 col-md-6">
-          <div class="product-sheet ecommerce">
-            <div class="top">
-              <div>
-                <h4 class="mb-1" data-i18n="sheets.starter.title">PurKit — Starter</h4>
-                <div class="badges">
-                  <span class="pk-badge" data-i18n="sheets.starter.badge1">Niveau : Débutant</span>
-                  <span class="pk-badge outline" data-i18n="sheets.starter.badge2">Essentiels</span>
-                </div>
-              </div>
-              <div class="pk-chip" data-i18n="sheets.starter.chip">+20 min/jour</div>
-            </div>
-
-            <p class="hook mb-3" data-i18n="sheets.starter.hook">Les indispensables pour cuisiner plus proprement, sans te compliquer.</p>
-
-            <ul class="pk-list">
-              <li data-i18n-html="sheets.starter.li1"><strong>Idéal pour</strong> : 1–2 personnes, routine simple, cuisine quotidienne</li>
-              <li data-i18n-html="sheets.starter.li2"><strong>Objectif</strong> : organisation + réduction du gaspillage</li>
-              <li data-i18n-html="sheets.starter.li3"><strong>Résultat</strong> : plan de base + bonnes habitudes faciles</li>
-            </ul>
-
-            <div class="includes">
-              <div class="includes-title" data-i18n="sheets.includesTitle">Inclus (exemples)</div>
-              <div class="includes-tags">
-                <span data-i18n="sheets.starter.tag1">Guide d’utilisation</span>
-                <span data-i18n="sheets.starter.tag2">Checklist de départ</span>
-                <span data-i18n="sheets.starter.tag3">Conseils entretien</span>
-                <span data-i18n="sheets.starter.tag4">Organisation basique</span>
-              </div>
-              <div class="note" data-i18n="sheets.note">*Tu pourras remplacer “exemples” par la liste exacte de ton kit.</div>
-            </div>
-
-            <div class="bottom">
-              <div class="value">
-                <div class="value-title" data-i18n="sheets.whyTitle">Pourquoi tu vas l’aimer</div>
-                <div class="value-text" data-i18n="sheets.starter.why">Simple, efficace, parfait pour commencer.</div>
-              </div>
-              <a href="#buy" class="pk-cta" data-i18n="products.buyBtn">Acheter</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="product-sheet ecommerce featured">
-            <div class="ribbon" data-i18n="sheets.best">Meilleur choix</div>
-
-            <div class="top">
-              <div>
-                <h4 class="mb-1" data-i18n="sheets.pro.title">PurKit — Pro</h4>
-                <div class="badges">
-                  <span class="pk-badge" data-i18n="sheets.pro.badge1">Niveau : Avancé</span>
-                  <span class="pk-badge outline" data-i18n="sheets.pro.badge2">Optimisé</span>
-                </div>
-              </div>
-              <div class="pk-chip" data-i18n="sheets.pro.chip">+35 min/jour</div>
-            </div>
-
-            <p class="hook mb-3" data-i18n="sheets.pro.hook">Pour celles/ceux qui cuisinent souvent et veulent une cuisine “zéro friction”.</p>
-
-            <ul class="pk-list">
-              <li data-i18n-html="sheets.pro.li1"><strong>Idéal pour</strong> : cuisine régulière, batch cooking, entretien efficace</li>
-              <li data-i18n-html="sheets.pro.li2"><strong>Objectif</strong> : contrôle + routine durable + gain de temps</li>
-              <li data-i18n-html="sheets.pro.li3"><strong>Résultat</strong> : organisation plus poussée + entretien simplifié</li>
-            </ul>
-
-            <div class="includes">
-              <div class="includes-title" data-i18n="sheets.includesTitle">Inclus (exemples)</div>
-              <div class="includes-tags">
-                <span data-i18n="sheets.pro.tag1">Guide Pro</span>
-                <span data-i18n="sheets.pro.tag2">Routine entretien</span>
-                <span data-i18n="sheets.pro.tag3">Organisation avancée</span>
-                <span data-i18n="sheets.pro.tag4">Optimisation cuisson</span>
-              </div>
-              <div class="note" data-i18n="sheets.note">*Tu pourras remplacer “exemples” par la liste exacte de ton kit.</div>
-            </div>
-
-            <div class="bottom">
-              <div class="value">
-                <div class="value-title" data-i18n="sheets.whyTitle">Pourquoi tu vas l’aimer</div>
-                <div class="value-text" data-i18n="sheets.pro.why">Le plus complet pour une routine solide.</div>
-              </div>
-              <a href="#buy" class="pk-cta" data-i18n="products.buyBtn">Acheter</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="product-sheet ecommerce">
-            <div class="top">
-              <div>
-                <h4 class="mb-1" data-i18n="sheets.family.title">PurKit — Family</h4>
-                <div class="badges">
-                  <span class="pk-badge" data-i18n="sheets.family.badge1">Niveau : Famille</span>
-                  <span class="pk-badge outline" data-i18n="sheets.family.badge2">Grande capacité</span>
-                </div>
-              </div>
-              <div class="pk-chip" data-i18n="sheets.family.chip">+45 min/jour</div>
-            </div>
-
-            <p class="hook mb-3" data-i18n="sheets.family.hook">Pensé pour meal-prep, grandes portions et organisation “multi-personnes”.</p>
-
-            <ul class="pk-list">
-              <li data-i18n-html="sheets.family.li1"><strong>Idéal pour</strong> : familles/colocs, lunchs, semaine planifiée</li>
-              <li data-i18n-html="sheets.family.li2"><strong>Objectif</strong> : frigo clair + rotation + moins de chaos</li>
-              <li data-i18n-html="sheets.family.li3"><strong>Résultat</strong> : tout est à sa place, tout le monde suit</li>
-            </ul>
-
-            <div class="includes">
-              <div class="includes-title" data-i18n="sheets.includesTitle">Inclus (exemples)</div>
-              <div class="includes-tags">
-                <span data-i18n="sheets.family.tag1">Plan meal-prep</span>
-                <span data-i18n="sheets.family.tag2">Organisation frigo</span>
-                <span data-i18n="sheets.family.tag3">Routines famille</span>
-                <span data-i18n="sheets.family.tag4">Checklists hebdo</span>
-              </div>
-              <div class="note" data-i18n="sheets.note">*Tu pourras remplacer “exemples” par la liste exacte de ton kit.</div>
-            </div>
-
-            <div class="bottom">
-              <div class="value">
-                <div class="value-title" data-i18n="sheets.whyTitle">Pourquoi tu vas l’aimer</div>
-                <div class="value-text" data-i18n="sheets.family.why">Le meilleur pour l’organisation à plusieurs.</div>
-              </div>
-              <a href="#buy" class="pk-cta" data-i18n="products.buyBtn">Acheter</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!-- /Mini fiches e-commerce -->
-
-    </div>
-
-  </section><!-- /Products -->
-
-  <!-- Team -->
-  <section id="team" class="team section light-background">
-    <div class="container section-title" data-aos="fade-up">
-      <h2 data-i18n="team.h2">Équipe</h2>
-      <p data-i18n="team.subtitle">NOTRE ÉQUIPE</p>
-    </div>
-
-    <div class="container">
-      <div class="row gy-5">
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="member">
-            <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>Walter White</h4>
-              <span data-i18n="team.role1">CEO</span>
-              <div class="social">
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="member">
-            <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>Sarah Jhonson</h4>
-              <span data-i18n="team.role2">Product</span>
-              <div class="social">
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="member">
-            <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>William Anderson</h4>
-              <span data-i18n="team.role3">CTO</span>
-              <div class="social">
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
-  </section><!-- /Team -->
+  </section>
 
-  <!-- Buy (Shopify embedded) -->
-  <section id="buy" class="section">
-    <div class="container section-title" data-aos="fade-up">
-      <h2 data-i18n="buy.h2">Acheter</h2>
-      <p data-i18n="buy.subtitle">SHOP PURKIT</p>
-    </div>
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="shopify-embed">
-        <iframe
-                src="https://www.shopify.com/ca-fr"
-                title="PurKit Shop"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allow="payment *; fullscreen *">
-        </iframe>
-      </div>
-      <p class="mt-3 text-center muted" data-i18n="buy.note">
-      </p>
-    </div>
-  </section><!-- /Buy -->
-
-  <!-- Contact -->
-  <section id="contact" class="contact section">
+  <section id="contact" class="contact section light-background">
     <div class="container section-title" data-aos="fade-up">
       <h2 data-i18n="contact.h2">Contact</h2>
       <p data-i18n="contact.subtitle">Écris-nous</p>
@@ -855,6 +346,7 @@
       <div class="row gy-4">
         <div class="col-lg-6">
           <div class="row gy-4">
+
             <div class="col-lg-12">
               <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt"></i>
@@ -886,20 +378,16 @@
           <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
             <div class="row gy-4">
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Nom" required=""
-                       data-i18n-placeholder="forms.name">
+                <input type="text" name="name" class="form-control" placeholder="Nom" required data-i18n-placeholder="forms.name">
               </div>
               <div class="col-md-6">
-                <input type="email" class="form-control" name="email" placeholder="Email" required=""
-                       data-i18n-placeholder="forms.email">
+                <input type="email" class="form-control" name="email" placeholder="Email" required data-i18n-placeholder="forms.email">
               </div>
               <div class="col-md-12">
-                <input type="text" class="form-control" name="subject" placeholder="Sujet" required=""
-                       data-i18n-placeholder="forms.subject">
+                <input type="text" class="form-control" name="subject" placeholder="Sujet" required data-i18n-placeholder="forms.subject">
               </div>
               <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""
-                          data-i18n-placeholder="forms.message"></textarea>
+                <textarea class="form-control" name="message" rows="4" placeholder="Message" required data-i18n-placeholder="forms.message"></textarea>
               </div>
 
               <div class="col-md-12 text-center">
@@ -914,16 +402,16 @@
 
       </div>
     </div>
-  </section><!-- /Contact -->
+  </section>
 
 </main>
 
-<footer id="footer" class="footer dark-background">
+<footer id="footer" class="footer">
   <div class="container footer-top">
     <div class="row gy-4">
 
       <div class="col-lg-4 col-md-6 footer-about">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="#hero" class="logo d-flex align-items-center">
           <span class="sitename">PurKit</span>
         </a>
         <div class="footer-contact pt-3">
@@ -936,10 +424,9 @@
         <h4 data-i18n="footer.navTitle">Navigation</h4>
         <ul>
           <li><i class="bi bi-chevron-right"></i> <a href="#hero" data-i18n="nav.home">Accueil</a></li>
+          <li><i class="bi bi-chevron-right"></i> <a href="#products" data-i18n="nav.shop">Produits</a></li>
+          <li><i class="bi bi-chevron-right"></i> <a href="#resources" data-i18n="nav.services">Ressources</a></li>
           <li><i class="bi bi-chevron-right"></i> <a href="#about" data-i18n="nav.about">À propos</a></li>
-          <li><i class="bi bi-chevron-right"></i> <a href="#services" data-i18n="nav.services">Services</a></li>
-          <li><i class="bi bi-chevron-right"></i> <a href="#products" data-i18n="nav.products">Produits</a></li>
-          <li><i class="bi bi-chevron-right"></i> <a href="#buy" data-i18n="nav.buy">Acheter</a></li>
           <li><i class="bi bi-chevron-right"></i> <a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
@@ -969,15 +456,12 @@
   </div>
 </footer>
 
-<!-- Scroll Top -->
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
   <i class="bi bi-arrow-up-short"></i>
 </a>
 
-<!-- Preloader -->
 <div id="preloader"></div>
 
-<!-- Vendor JS Files -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
 <script src="assets/vendor/aos/aos.js"></script>
@@ -987,10 +471,30 @@
 <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-<!-- Main JS File -->
 <script src="assets/js/main.js"></script>
 
-<!-- ✅ i18n (FR/EN) -->
+<script>
+  const SHOP_URL = "https://purkit-2.myshopify.com";
+
+  function goShop(url = SHOP_URL) {
+    const overlay = document.getElementById("pkLeaveOverlay");
+    if (overlay) overlay.classList.add("show");
+    setTimeout(() => {
+      window.location.href = url;
+    }, 250);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".pk-shop-link").forEach(a => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const url = a.getAttribute("href") || SHOP_URL;
+        goShop(url);
+      });
+    });
+  });
+</script>
+
 <script>
   const I18N = {
     fr: {
@@ -999,403 +503,105 @@
         description: "PurKit — kits de cuisine + guides d’utilisation + conseils pour réduire l’exposition aux microplastiques et contaminants domestiques.",
         keywords: "PurKit, cuisine, microplastiques, contaminants, PTFE, PFAS, entretien, ustensiles, poêles, contenants"
       },
-      nav: {
-        home: "Accueil",
-        about: "À propos",
-        services: "Services",
-        products: "Produits",
-        team: "Équipe",
-        buy: "Acheter",
-        contact: "Contact"
-      },
-      hero: {
-        title: "PurKit",
-        subtitle: "Des kits de cuisine pensés pour cuisiner plus sainement, entretenir vos outils, et réduire l’exposition aux microplastiques.",
-        ctaKits: "Voir les kits",
-        video: "Qu’est-ce que les microplastiques ?",
-        ctaBuy: "Acheter"
-      },
+      nav: { home: "Accueil", shop: "Produits", services: "Ressources", about: "À propos", contact: "Contact" },
+      hero: { subtitle: "Des kits de cuisine pensés pour un quotidien plus sain", ctaKits: "Voir les kits", video: "Qu’est-ce que les microplastiques ?", ctaBuy: "Acheter" },
       about: {
-        h3: "Un kit et des guides clairs, pour une cuisine plus consciente.",
-        p1: "PurKit regroupe des articles utiles (poêles, contenants, accessoires) et des guides simples pour améliorer tes habitudes : cuisson, nettoyage, entretien et précautions au quotidien.",
-        p2: "L’objectif : réduire les sources courantes d’exposition (microplastiques, usure de revêtements, contamination croisée) sans tomber dans la perfection — juste de meilleurs choix, réalistes et durables.",
-        italic: "Des gestes simples, une meilleure longévité des produits, et une cuisine plus saine au quotidien.",
-        li1: "Guides d’instructions pour utiliser et entretenir chaque item.",
-        li2: "Conseils pour réduire l’exposition aux microplastiques dans la cuisine.",
-        li3: "Bonnes pratiques (températures, matériaux, hygiène, contamination croisée)."
+        h3: "Notre produit",
+        h4a: "Les bienfaits",
+        h4b: "L’avantage PurKit",
+        p1: "PurKit propose des kits regroupant plusieurs produits du quotidien, soigneusement sélectionnés comme des alternatives plus saines et tout aussi efficaces. Chaque kit est conçu pour remplacer facilement des produits courants, sans compliquer vos habitudes.",
+        p2: "Les produits inclus dans les kits aident à réduire l’exposition aux microplastiques et à d’autres substances fréquemment présentes dans les produits traditionnels. Chaque kit est accompagné de guides simples et pratiques pour encourager de meilleures habitudes au quotidien.",
+        p3: "Avec PurKit, plus besoin de passer des heures à comparer les options. Tout est déjà sélectionné et regroupé au même endroit pour vous faire gagner du temps et simplifier la transition vers des choix plus sains.",
+
       },
-      services: {
-        h2: "Services",
-        subtitle: "GUIDES & RESSOURCES PURKIT",
-        s1: {
-          title: "Contaminants au quotidien",
-          p: "Comprendre les sources courantes d’exposition dans la cuisine (microplastiques, matériaux, revêtements) et pourquoi des alternatives simples peuvent faire une différence.",
-          li1: "<strong>Microplastiques :</strong> exposition fréquente via plastique chauffé, ustensiles/planches plastiques, eau et air intérieur.",
-          li2: "<strong>Présence dans le corps :</strong> détectés dans le sang, poumons, placenta et lait maternel selon des études récentes.",
-          li3: "<strong>PTFE / PFAS :</strong> certaines poêles antiadhésives (revêtement PTFE) peuvent se dégrader à haute température (~260°C+) et s’user.",
-          li4: "<strong>Approche :</strong> réduire l’exposition quand des options réalistes existent (matériaux plus durables, bonnes pratiques)."
+      resources: {
+        h2: "Ressources", subtitle: "GUIDES & INFORMATIONS", tab1: "Contaminants", tab2: "Guide", tab3: "Réduire",
+        s1: { title: "Contaminants au quotidien", p1: "La cuisine est l’un des principaux environnements d’exposition à certains contaminants du quotidien. Microplastiques, matériaux synthétiques et revêtements peuvent, dans certaines conditions d’usage, contribuer à une exposition répétée. Comprendre ces sources permet d’adopter des alternatives simples qui font une réelle différence à long terme.",
+          h5a: "Microplastiques", p2: "L’exposition est fréquente et provient notamment du chauffage du plastique, de l’utilisation d’ustensiles et de planches en plastique, ainsi que de l’eau potable et de l’air intérieur. Des études récentes ont mis en évidence la présence de microplastiques dans le sang, les poumons, le placenta et le lait maternel, soulignant leur caractère omniprésent.",
+          h5b: "PTFE / PFAS", p3: "Certains revêtements antiadhésifs à base de PTFE peuvent se dégrader lorsqu’ils sont exposés à des températures élevées (environ 260 °C et plus) ou à une usure répétée, augmentant le risque de relargage de composés indésirirables au fil du temps.",
+          h5c: "Notre approche", p4: "L’objectif n’est pas la perfection, mais la réduction de l’exposition lorsque des options réalistes existent. Le choix de matériaux plus durables, combiné à de bonnes pratiques d’utilisation et d’entretien, permet de limiter ces sources courantes sans complexifier le quotidien."
         },
-        s2: {
-          title: "Guide d’instructions PurKit",
-          p: "Instructions simples et claires pour utiliser et entretenir les items du kit afin de cuisiner plus sainement tout en prolongeant leur durée de vie.",
-          li1: "<strong>Poêle inox :</strong> préchauffer jusqu’aux “perles d’eau”, huile modérée, cuisson haute température possible.",
-          li2: "<strong>Poêle céramique :</strong> feu doux/moyen pour préserver le revêtement, éviter les outils abrasifs.",
-          li3: "<strong>Contenants verre :</strong> laisser reposer 5–10 min avant de fermer (éviter la pression), couvercles à la main.",
-          li4: "<strong>Planche :</strong> huile minérale (facultatif), dédier une planche à la viande, sécher à l’air (vertical si possible).",
-          li5: "<strong>Brosse vaisselle :</strong> retirer l’excédent d’eau et laisser sécher rapidement pour limiter le développement bactérien."
+        s2: { title: "Guide d’instructions PurKit", p1: "Ce guide présente des consignes simples et concrètes pour utiliser et entretenir les éléments du kit PurKit. L’objectif est de cuisiner plus sainement, tout en préservant la performance et la durabilité des équipements au fil du temps.",
+          li1: "<strong>Poêle en acier inoxydable :</strong> Préchauffer jusqu’à l’apparition de légères perles d’eau, ajouter une quantité modérée de matière grasse, puis procéder à la cuisson.",
+          li2: "<strong>Poêle à revêtement céramique :</strong> Utiliser une chaleur douce à moyenne. Éviter les outils abrasifs ou métalliques.",
+          li3: "<strong>Contenants en verre :</strong> Laisser reposer 5 à 10 minutes avant de fermer. Fermer à la main, sans forcer.",
+          li4: "<strong>Planches à découper :</strong> Huile minérale (facultatif). Dédier une planche à la viande crue. Séchage complet à l’air (idéalement vertical).",
+          li5: "<strong>Brosse à vaisselle :</strong> Retirer l’excédent d’eau et laisser sécher rapidement pour limiter le développement bactérien."
         },
-        s3: {
-          title: "Réduire l’exposition, simplement",
-          p: "Mesures additionnelles faciles à intégrer : pas la perfection, mais des choix plus conscients et durables pour améliorer graduellement l’environnement intérieur.",
-          li1: "<strong>Cuisine :</strong> éviter le plastique à la chaleur (micro-ondes / four / aliments chauds).",
-          li2: "<strong>Eau :</strong> filtration certifiée; bouilloires/carafes/gourdes sans plastique en contact avec l’eau chaude.",
-          li3: "<strong>Bouteilles :</strong> limiter l’usage unique; privilégier l’inox pour l’eau quotidienne.",
-          li4: "<strong>Lessive :</strong> laver synthétiques moins souvent, à froid, cycles doux; sacs capteurs de microfibres.",
-          li5: "<strong>Ménage :</strong> limiter aérosols parfumés; aérer; aspirateur HEPA; méthodes humides plutôt qu’à sec."
-        },
-      },
-      features: {
-        tab1: "Bonnes pratiques",
-        tab2: "Moins de plastique",
-        tab3: "Températures & matériaux",
-        tab4: "Acheter",
-        p1: {
-          h3: "Des gestes simples qui changent tout",
-          italic: "Cuisson, nettoyage, hygiène : on vise la constance, pas la perfection.",
-          li1: "Entretenir et sécher correctement pour limiter la prolifération microbienne.",
-          li2: "Éviter les outils abrasifs sur les revêtements sensibles (ex: céramique).",
-          li3: "Réduire la contamination croisée avec une planche dédiée à la viande.",
-          p: "Tout est détaillé dans la section Services."
-        },
-        p2: {
-          h3: "Réduire l’exposition aux microplastiques",
-          p: "Le point le plus “rentable” : ne pas chauffer le plastique.",
-          li1: "Pas de transfert d’aliments chauds dans du plastique.",
-          li2: "Préférer verre / inox pour eau et aliments.",
-          li3: "Aérer + nettoyer “humide” pour limiter les particules dans l’air."
-        },
-        p3: {
-          h3: "Températures, revêtements, durabilité",
-          p: "Bien utiliser ses poêles = meilleure performance + durée de vie + moins d’usure.",
-          li1: "Inox : haute température possible si bien préchauffé.",
-          li2: "Céramique : feu doux/moyen pour préserver le revêtement.",
-          li3: "Antiadhésifs PTFE : éviter la surchauffe et l’usure (rayures, ustensiles inadaptés)."
-        },
-        p4: {
-          h3: "Acheter directement sur la page",
-          p: "Le shop est intégré ci-dessous (section Buy).",
-          li1: "Navigation simple",
-          li2: "Expérience fluide",
-          li3: "Checkout rapide"
+        s3: { title: "Réduire l’exposition, simplement", p1: "Réduire l’exposition au quotidien ne passe pas par la perfection, mais par l’adoption de gestes simples, cohérents et durables. Intégrées progressivement, ces mesures contribuent à améliorer l’environnement intérieur sans alourdir les routines.",
+          li1: "<strong>Cuisine :</strong> éviter le plastique exposé à la chaleur. Privilégier verre, inox, céramique pour cuisson et stockage.",
+          li2: "<strong>Eau :</strong> filtration certifiée si possible. Favoriser bouilloires/carafes/gourdes sans plastique en contact avec l’eau chaude.",
+          li3: "<strong>Bouteilles :</strong> limiter l’usage unique. Opter pour des contenants durables (ex. acier inoxydable).",
+          li4: "<strong>Lessive :</strong> laver moins souvent les synthétiques, à froid, cycles doux, sacs capteurs de microfibres.",
+          li5: "<strong>Entretien ménager :</strong> limiter les aérosols, aérer, aspirateur HEPA, nettoyage humide plutôt qu’à sec."
         }
       },
-      products: {
-        h2: "Produits",
-        subtitle: "NOS KITS DE CUISINE",
-        badgeStarter: "Starter",
-        badgePro: "Pro",
-        badgeFamily: "Family",
-        cardStarterTitle: "PurKit — Starter",
-        cardStarterDesc: "Les essentiels pour cuisiner simple, propre, et durable.",
-        cardProTitle: "PurKit — Pro",
-        cardProDesc: "Plus d’options, plus de contrôle : cuisson + entretien optimisés.",
-        cardFamilyTitle: "PurKit — Family",
-        cardFamilyDesc: "Pensé pour meal-prep, grandes portions et organisation.",
-        buyBtn: "Acheter"
-      },
-      sheets: {
-        includesTitle: "Inclus (exemples)",
-        note: "*Tu pourras remplacer “exemples” par la liste exacte de ton kit.",
-        whyTitle: "Pourquoi tu vas l’aimer",
-        best: "Meilleur choix",
-        starter: {
-          title: "PurKit — Starter",
-          badge1: "Niveau : Débutant",
-          badge2: "Essentiels",
-          chip: "+20 min/jour",
-          hook: "Les indispensables pour cuisiner plus proprement, sans te compliquer.",
-          li1: "<strong>Idéal pour</strong> : 1–2 personnes, routine simple, cuisine quotidienne",
-          li2: "<strong>Objectif</strong> : organisation + réduction du gaspillage",
-          li3: "<strong>Résultat</strong> : plan de base + bonnes habitudes faciles",
-          tag1: "Guide d’utilisation",
-          tag2: "Checklist de départ",
-          tag3: "Conseils entretien",
-          tag4: "Organisation basique",
-          why: "Simple, efficace, parfait pour commencer."
-        },
-        pro: {
-          title: "PurKit — Pro",
-          badge1: "Niveau : Avancé",
-          badge2: "Optimisé",
-          chip: "+35 min/jour",
-          hook: "Pour celles/ceux qui cuisinent souvent et veulent une cuisine “zéro friction”.",
-          li1: "<strong>Idéal pour</strong> : cuisine régulière, batch cooking, entretien efficace",
-          li2: "<strong>Objectif</strong> : contrôle + routine durable + gain de temps",
-          li3: "<strong>Résultat</strong> : organisation plus poussée + entretien simplifié",
-          tag1: "Guide Pro",
-          tag2: "Routine entretien",
-          tag3: "Organisation avancée",
-          tag4: "Optimisation cuisson",
-          why: "Le plus complet pour une routine solide."
-        },
-        family: {
-          title: "PurKit — Family",
-          badge1: "Niveau : Famille",
-          badge2: "Grande capacité",
-          chip: "+45 min/jour",
-          hook: "Pensé pour meal-prep, grandes portions et organisation “multi-personnes”.",
-          li1: "<strong>Idéal pour</strong> : familles/colocs, lunchs, semaine planifiée",
-          li2: "<strong>Objectif</strong> : frigo clair + rotation + moins de chaos",
-          li3: "<strong>Résultat</strong> : tout est à sa place, tout le monde suit",
-          tag1: "Plan meal-prep",
-          tag2: "Organisation frigo",
-          tag3: "Routines famille",
-          tag4: "Checklists hebdo",
-          why: "Le meilleur pour l’organisation à plusieurs."
-        }
-      },
-      team: {
-        h2: "Équipe",
-        subtitle: "NOTRE ÉQUIPE",
-        role1: "CEO",
-        role2: "Product",
-        role3: "CTO"
+      products: { h2: "Produits", subtitle: "NOS KITS", buyBtn: "Acheter",
+        card1: { title: "Kit Démarrage", desc: "Un kit simple et efficace pour commencer avec de meilleures habitudes." },
+        card2: { title: "Kit Avancé", desc: "Pour une cuisine plus régulière : plus d’options et une routine plus stable." },
+        card3: { title: "Kit Premium", desc: "Pensé pour les familles : organisation, durabilité et usage quotidien." }
       },
       buy: {
         h2: "Acheter",
         subtitle: "SHOP PURKIT",
+        goShop: "Aller à la boutique",
+        redirectTitle: "Redirection vers la boutique…",
+        redirectSub: "Vous allez être dirigé vers Shopify"
       },
-      contact: {
-        h2: "Contact",
-        subtitle: "Écris-nous",
-        addressTitle: "Adresse",
-        addressValue: "Québec, Canada",
-        phoneTitle: "Téléphone",
-        emailTitle: "Email"
-      },
-      forms: {
-        name: "Nom",
-        email: "Email",
-        subject: "Sujet",
-        message: "Message",
-        loading: "Chargement...",
-        sent: "Message envoyé. Merci !",
-        send: "Envoyer"
-      },
-      footer: {
-        location: "Québec, Canada",
-        emailLabel: "Email:",
-        navTitle: "Navigation",
-        newsTitle: "Newsletter",
-        newsDesc: "Reçois les nouveautés (kits, guides, mises à jour).",
-        subscribe: "S'abonner",
-        newsSent: "Demande envoyée. Merci !",
-        copyrightLabel: "Copyright",
-        rights: "All Rights Reserved"
-      }
+      contact: { h2: "Contact", subtitle: "Écris-nous", addressTitle: "Adresse", addressValue: "Québec, Canada", phoneTitle: "Téléphone", emailTitle: "Email" },
+      forms: { name: "Nom", email: "Email", subject: "Sujet", message: "Message", loading: "Chargement...", sent: "Message envoyé. Merci !", send: "Envoyer" },
+      footer: { location: "Québec, Canada", emailLabel: "Email:", navTitle: "Navigation", newsTitle: "Newsletter", newsDesc: "Reçois les nouveautés (kits, guides, mises à jour).", subscribe: "S'abonner", newsSent: "Demande envoyée. Merci !", copyrightLabel: "Copyright", rights: "All Rights Reserved" }
     },
 
     en: {
-      meta: {
-        title: "PurKit",
-        description: "PurKit — kitchen kits + clear guides + tips to reduce exposure to microplastics and household contaminants.",
-        keywords: "PurKit, kitchen, microplastics, contaminants, PTFE, PFAS, care, utensils, pans, containers"
-      },
-      nav: {
-        home: "Home",
-        about: "About",
-        services: "Guides",
-        products: "Products",
-        team: "Team",
-        buy: "Buy",
-        contact: "Contact"
-      },
-      hero: {
-        title: "PurKit",
-        subtitle: "Kitchen kits designed to help you cook healthier, maintain your tools, and reduce exposure to microplastics.",
-        ctaKits: "View kits",
-        video: "What are microplastics?",
-        ctaBuy: "Buy"
-      },
+      meta: { title: "PurKit", description: "PurKit — kitchen kits + guides + tips to reduce exposure to microplastics and household contaminants.", keywords: "PurKit, kitchen, microplastics, contaminants, PTFE, PFAS, care, utensils, pans, containers" },
+      nav: { home: "Home", shop: "Products", services: "Resources", about: "About", contact: "Contact" },
+      hero: { subtitle: "Kitchen kits designed for a healthier everyday routine", ctaKits: "View kits", video: "What are microplastics?", ctaBuy: "Buy" },
       about: {
-        h3: "A kit + clear guides for a more mindful kitchen.",
-        p1: "PurKit brings together useful items (pans, containers, accessories) and simple guides to improve daily habits: cooking, cleaning, maintenance, and practical precautions.",
-        p2: "Goal: reduce common exposure sources (microplastics, coating wear, cross-contamination) without chasing perfection — just better, realistic, durable choices.",
-        italic: "Simple habits, longer-lasting products, and a healthier kitchen — day to day.",
-        li1: "Step-by-step guides to use and care for each item.",
-        li2: "Tips to reduce microplastics exposure in the kitchen.",
-        li3: "Best practices (temperatures, materials, hygiene, cross-contamination)."
+        h3: "Our product", h4a: "Benefits", h4b: "The PurKit advantage",
+        p1: "PurKit offers kits that group everyday items selected as healthier, equally effective alternatives. Each kit is designed to replace common products without complicating your habits.",
+        p2: "Items included help reduce exposure to microplastics and other substances often found in traditional products. Each kit comes with simple guides to support better daily habits.",
+        p3: "With PurKit, you don’t need to spend hours comparing options. Everything is selected and grouped in one place to save time and make the switch easier.",
+        note: "*Images are illustrative: exact contents are listed on the kit description."
       },
-      services: {
-        h2: "Guides",
-        subtitle: "PURKIT GUIDES & RESOURCES",
-        s1: {
-          title: "Everyday contaminants",
-          p: "Understand common exposure sources in the kitchen (microplastics, materials, coatings) and why small, realistic alternatives can make a difference.",
-          li1: "<strong>Microplastics:</strong> frequent exposure via heated plastics, plastic utensils/boards, water, and indoor air.",
-          li2: "<strong>In the body:</strong> detected in blood, lungs, placenta, and breast milk in recent studies.",
-          li3: "<strong>PTFE / PFAS:</strong> some nonstick pans (PTFE coating) can degrade at high heat (~260°C+ / 500°F+) and wear over time.",
-          li4: "<strong>Approach:</strong> reduce exposure when practical options exist (more durable materials, better practices)."
+      resources: {
+        h2: "Resources", subtitle: "GUIDES & INFORMATION", tab1: "Contaminants", tab2: "Guide", tab3: "Reduce",
+        s1: { title: "Everyday contaminants", p1: "The kitchen is a major exposure environment for certain everyday contaminants. Microplastics, synthetic materials, and coatings can contribute to repeated exposure depending on use. Understanding sources helps you adopt simple alternatives that matter long-term.",
+          h5a: "Microplastics", p2: "Exposure is common from heating plastic, using plastic utensils/boards, as well as drinking water and indoor air. Recent studies detected microplastics in blood, lungs, placenta, and breast milk.",
+          h5b: "PTFE / PFAS", p3: "Some PTFE-based nonstick coatings can degrade at high temperatures (~260°C / 500°F+) or with repeated wear, increasing the risk of releasing unwanted compounds over time.",
+          h5c: "Our approach", p4: "The goal isn’t perfection — it’s reducing exposure when realistic options exist. Durable materials plus good use and care practices can limit common sources without complicating daily life."
         },
-        s2: {
-          title: "PurKit instruction guide",
-          p: "Clear, simple instructions to use and maintain kit items — cook healthier while extending product lifespan.",
-          li1: "<strong>Stainless pan:</strong> preheat until “water beads”, moderate oil, high-heat cooking possible when used correctly.",
-          li2: "<strong>Ceramic pan:</strong> low/medium heat to preserve the coating; avoid abrasive tools.",
-          li3: "<strong>Glass containers:</strong> let food cool 5–10 min before closing (avoid pressure), hand-tighten lids.",
-          li4: "<strong>Board:</strong> mineral oil (optional), dedicate one board to raw meat, air-dry (vertical if possible).",
-          li5: "<strong>Dish brush:</strong> remove excess water and dry quickly to limit bacterial growth."
+        s2: { title: "PurKit instruction guide", p1: "Clear, practical steps to use and maintain kit items — cook healthier while keeping performance and durability over time.",
+          li1: "<strong>Stainless steel pan:</strong> Preheat until light water beads form, add moderate fat, then cook.",
+          li2: "<strong>Ceramic-coated pan:</strong> Use low/medium heat. Avoid abrasive/metal tools.",
+          li3: "<strong>Glass containers:</strong> Let hot food rest 5–10 minutes before sealing. Hand-tighten only.",
+          li4: "<strong>Cutting boards:</strong> Mineral oil optional. Dedicate one board for raw meat. Air-dry fully (ideally vertical).",
+          li5: "<strong>Dish brush:</strong> Remove excess water and dry quickly to limit bacterial growth."
         },
-        s3: {
-          title: "Reduce exposure — simply",
-          p: "Easy add-ons to your routine: not perfection, just more conscious and durable choices to improve indoor environment over time.",
-          li1: "<strong>Kitchen:</strong> avoid heating plastic (microwave / oven / hot foods).",
-          li2: "<strong>Water:</strong> certified filtration; kettles/carafes/bottles without plastic touching hot water.",
-          li3: "<strong>Bottles:</strong> reduce single-use; prefer stainless for everyday water.",
-          li4: "<strong>Laundry:</strong> wash synthetics less often, cold, gentle cycles; microfiber-catching bags.",
-          li5: "<strong>Cleaning:</strong> limit scented aerosols; ventilate; HEPA vacuum; wet-clean rather than dry dusting."
-        },
-        note: "These sections are built into your site (no external links), so visitors can find everything in one place."
-      },
-      features: {
-        tab1: "Best practices",
-        tab2: "Less plastic",
-        tab3: "Heat & materials",
-        tab4: "Buy",
-        p1: {
-          h3: "Simple habits that make a real difference",
-          italic: "Cooking, cleaning, hygiene: aim for consistency, not perfection.",
-          li1: "Maintain and dry properly to limit microbial growth.",
-          li2: "Avoid abrasive tools on sensitive coatings (e.g., ceramic).",
-          li3: "Reduce cross-contamination with a dedicated raw-meat board.",
-          p: "Everything is detailed in the Guides section."
-        },
-        p2: {
-          h3: "Reduce microplastics exposure",
-          p: "The highest-impact step: don’t heat plastic.",
-          li1: "Don’t transfer hot food into plastic.",
-          li2: "Prefer glass / stainless for water and food.",
-          li3: "Ventilate + wet-clean to reduce airborne particles."
-        },
-        p3: {
-          h3: "Heat, coatings, durability",
-          p: "Using pans correctly = better performance + longer lifespan + less wear.",
-          li1: "Stainless: high heat works well when properly preheated.",
-          li2: "Ceramic: low/medium heat preserves the coating.",
-          li3: "PTFE nonstick: avoid overheating and wear (scratches, wrong utensils)."
-        },
-        p4: {
-          h3: "Buy directly on the page",
-          p: "The shop is embedded below (Buy section).",
-          li1: "Simple navigation",
-          li2: "Smooth experience",
-          li3: "Fast checkout"
+        s3: { title: "Reduce exposure — simply", p1: "Not perfection — just consistent, durable habits. Adopt gradually to improve indoor environment without adding friction.",
+          li1: "<strong>Kitchen:</strong> avoid heating plastic; prefer glass/stainless/ceramic.",
+          li2: "<strong>Water:</strong> certified filtration when possible; avoid plastic touching hot water.",
+          li3: "<strong>Bottles:</strong> reduce single-use; choose durable containers (stainless steel).",
+          li4: "<strong>Laundry:</strong> wash synthetics less often; cold, gentle cycles; microfiber-catching bags.",
+          li5: "<strong>Cleaning:</strong> limit aerosols; ventilate; HEPA vacuum; wet-clean instead of dry dusting."
         }
       },
-      products: {
-        h2: "Products",
-        subtitle: "OUR KITCHEN KITS",
-        badgeStarter: "Starter",
-        badgePro: "Pro",
-        badgeFamily: "Family",
-        cardStarterTitle: "PurKit — Starter",
-        cardStarterDesc: "The essentials for a clean, simple, durable kitchen routine.",
-        cardProTitle: "PurKit — Pro",
-        cardProDesc: "More options, more control: optimized cooking + maintenance.",
-        cardFamilyTitle: "PurKit — Family",
-        cardFamilyDesc: "Built for meal-prep, large portions, and organization.",
-        buyBtn: "Buy"
-      },
-      sheets: {
-        includesTitle: "Included (examples)",
-        note: "*Replace “examples” with the exact contents of your kit.",
-        whyTitle: "Why you’ll love it",
-        best: "Best value",
-        starter: {
-          title: "PurKit — Starter",
-          badge1: "Level: Beginner",
-          badge2: "Essentials",
-          chip: "+20 min/day",
-          hook: "The must-haves to cook cleaner — without overthinking it.",
-          li1: "<strong>Best for</strong>: 1–2 people, simple routine, everyday cooking",
-          li2: "<strong>Goal</strong>: organization + less waste",
-          li3: "<strong>Outcome</strong>: a solid base + easy habits",
-          tag1: "User guide",
-          tag2: "Starter checklist",
-          tag3: "Care tips",
-          tag4: "Basic organization",
-          why: "Simple, effective, perfect to start."
-        },
-        pro: {
-          title: "PurKit — Pro",
-          badge1: "Level: Advanced",
-          badge2: "Optimized",
-          chip: "+35 min/day",
-          hook: "For people who cook often and want a “zero-friction” kitchen.",
-          li1: "<strong>Best for</strong>: frequent cooking, batch cooking, efficient care",
-          li2: "<strong>Goal</strong>: control + durable routine + save time",
-          li3: "<strong>Outcome</strong>: advanced organization + simplified maintenance",
-          tag1: "Pro guide",
-          tag2: "Care routine",
-          tag3: "Advanced organization",
-          tag4: "Cooking optimization",
-          why: "The most complete for a strong routine."
-        },
-        family: {
-          title: "PurKit — Family",
-          badge1: "Level: Family",
-          badge2: "High capacity",
-          chip: "+45 min/day",
-          hook: "Designed for meal-prep, big portions, and multi-person organization.",
-          li1: "<strong>Best for</strong>: families/roommates, lunches, planned weeks",
-          li2: "<strong>Goal</strong>: clear fridge + rotation + less chaos",
-          li3: "<strong>Outcome</strong>: everything has a place — everyone follows",
-          tag1: "Meal-prep plan",
-          tag2: "Fridge organization",
-          tag3: "Family routines",
-          tag4: "Weekly checklists",
-          why: "Best for shared organization."
-        }
-      },
-      team: {
-        h2: "Team",
-        subtitle: "OUR TEAM",
-        role1: "CEO",
-        role2: "Product",
-        role3: "CTO"
+      products: { h2: "Products", subtitle: "OUR KITS", buyBtn: "Buy",
+        card1: { title: "Starter Kit", desc: "A simple, effective kit to start better habits." },
+        card2: { title: "Advanced Kit", desc: "For regular cooking: more options and a steadier routine." },
+        card3: { title: "Premium Kit", desc: "Built for families: organization, durability, everyday use." }
       },
       buy: {
         h2: "Buy",
-        subtitle: "SHOP PURKIT"
+        subtitle: "SHOP PURKIT",
+        note: "*Exact kit contents are listed on the product page.",
+        goShop: "Go to the shop",
+        redirectTitle: "Redirecting to the shop…",
+        redirectSub: "You will be taken to Shopify"
       },
-      contact: {
-        h2: "Contact",
-        subtitle: "Message us",
-        addressTitle: "Location",
-        addressValue: "Quebec, Canada",
-        phoneTitle: "Phone",
-        emailTitle: "Email"
-      },
-      forms: {
-        name: "Name",
-        email: "Email",
-        subject: "Subject",
-        message: "Message",
-        loading: "Loading...",
-        sent: "Message sent. Thank you!",
-        send: "Send"
-      },
-      footer: {
-        location: "Quebec, Canada",
-        emailLabel: "Email:",
-        navTitle: "Navigation",
-        newsTitle: "Newsletter",
-        newsDesc: "Get updates (kits, guides, releases).",
-        subscribe: "Subscribe",
-        newsSent: "Request sent. Thank you!",
-        copyrightLabel: "Copyright",
-        rights: "All Rights Reserved"
-      }
+      contact: { h2: "Contact", subtitle: "Message us", addressTitle: "Location", addressValue: "Quebec, Canada", phoneTitle: "Phone", emailTitle: "Email" },
+      forms: { name: "Name", email: "Email", subject: "Subject", message: "Message", loading: "Loading...", sent: "Message sent. Thank you!", send: "Send" },
+      footer: { location: "Quebec, Canada", emailLabel: "Email:", navTitle: "Navigation", newsTitle: "Newsletter", newsDesc: "Get updates (kits, guides, releases).", subscribe: "Subscribe", newsSent: "Request sent. Thank you!", copyrightLabel: "Copyright", rights: "All Rights Reserved" }
     }
   };
 
@@ -1406,31 +612,25 @@
   function setLanguage(lang) {
     document.documentElement.setAttribute("lang", lang);
 
-    // textContent
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.getAttribute("data-i18n");
       const value = getNested(I18N[lang], key);
       if (value === undefined) return;
 
-      // attribute mode (e.g., value/content)
       const attr = el.getAttribute("data-i18n-attr");
       if (attr) {
         el.setAttribute(attr, value);
         return;
       }
-
-      // default: text
       el.textContent = value;
     });
 
-    // innerHTML (for <strong> etc.)
     document.querySelectorAll("[data-i18n-html]").forEach(el => {
       const key = el.getAttribute("data-i18n-html");
       const value = getNested(I18N[lang], key);
       if (value !== undefined) el.innerHTML = value;
     });
 
-    // placeholders
     document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
       const key = el.getAttribute("data-i18n-placeholder");
       const value = getNested(I18N[lang], key);
