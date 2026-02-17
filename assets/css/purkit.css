@@ -171,7 +171,7 @@ h1,h2,h3,h4,h5,h6{
 #hero.hero .hero-logo-overlay img.hero-logo{
     width: 100%;
     height: auto;
-    max-height: 640px;               /* ✅ gros */
+    max-height: 440px;               /* ✅ gros */
     object-fit: contain;
     display: block;
 }
