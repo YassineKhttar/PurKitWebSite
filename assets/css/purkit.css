@@ -7,7 +7,7 @@
     --surface-color: #fffaf2;
 
     --default-color: #2f2f2f;
-    --heading-color: #1f2a22;
+    --heading-color: #4f8f63;
 
     --accent-color: #4f8f63;
     --contrast-color: #ffffff;
@@ -42,7 +42,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .scrolled .header,
 .header.header-scrolled{
-    background-color: rgba(32, 49, 38, 0.96);
+    background-color: #4f8f63;
     box-shadow: 0 0 18px rgba(0,0,0,0.12);
     backdrop-filter: blur(6px);
 }
@@ -206,9 +206,9 @@ h1,h2,h3,h4,h5,h6{
     flex: 0 0 auto;
 }
 #header .header-logo img{
-    height: 46px;       /* ajuste */
+    height: 90px;       /* ajuste */
     width: auto;
-    max-width: 200px;
+    max-width: 350px;
     object-fit: contain;
     display: block;
 }

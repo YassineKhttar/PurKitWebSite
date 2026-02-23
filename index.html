@@ -25,7 +25,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.png">
 
-
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -36,39 +35,51 @@
   <link href="assets/css/purkit.css" rel="stylesheet">
 
   <style>
-    .pk-leave-overlay{
+    .pk-leave-overlay {
       position: fixed;
       inset: 0;
       display: none;
       align-items: center;
       justify-content: center;
-      background: rgba(32,49,38,.92);
+      background: rgba(32, 49, 38, .92);
       color: #fff;
       z-index: 9999;
       text-align: center;
       padding: 24px;
     }
-    .pk-leave-overlay.show{ display: flex; }
-    .pk-leave-overlay .box{
+
+    .pk-leave-overlay.show {
+      display: flex;
+    }
+
+    .pk-leave-overlay .box {
       max-width: 520px;
       width: 100%;
     }
-    .pk-leave-overlay .spinner{
+
+    .pk-leave-overlay .spinner {
       width: 44px;
       height: 44px;
-      border: 4px solid rgba(255,255,255,.25);
-      border-top-color: rgba(255,255,255,.95);
+      border: 4px solid rgba(255, 255, 255, .25);
+      border-top-color: rgba(255, 255, 255, .95);
       border-radius: 50%;
       margin: 0 auto 14px auto;
       animation: pkspin .8s linear infinite;
     }
-    @keyframes pkspin{ to{ transform: rotate(360deg);} }
-    .pk-leave-overlay .title{
+
+    @keyframes pkspin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .pk-leave-overlay .title {
       font-weight: 800;
       font-size: 18px;
       margin: 0 0 6px 0;
     }
-    .pk-leave-overlay .sub{
+
+    .pk-leave-overlay .sub {
       margin: 0;
       opacity: .9;
       font-size: 14px;
@@ -89,12 +100,10 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="header-bar">
 
-    <!-- ✅ Logo à gauche -->
     <a href="#hero" class="header-logo" aria-label="PurKit">
-      <img src="assets/img/logo.png" alt="PurKit">
+      <img src="assets/img/logoNoBg.png" alt="PurKit">
     </a>
 
-    <!-- ✅ Menu au centre -->
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active" data-i18n="nav.home">Accueil</a></li>
@@ -107,15 +116,12 @@
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
 
-    <!-- ✅ Langue à droite -->
     <div class="lang-switch">
       <button class="lang-btn active" type="button" data-lang="fr">FR</button>
       <button class="lang-btn" type="button" data-lang="en">EN</button>
     </div>
 
   </div>
-
-
 </header>
 
 <main class="main">
@@ -145,8 +151,6 @@
       </div>
     </div>
   </section>
-
-
 
   <section id="about" class="about section">
     <div class="container">
@@ -190,7 +194,7 @@
 
         <div class="col-lg-4 col-md-6">
           <div class="card h-100 border-0 shadow-sm">
-            <img src="assets/img/products/purkit-starter.jpg" class="card-img-top" alt="Kit Démarrage" style="height:260px;object-fit:cover;">
+            <img src="assets/img/image kit demarrage.png" class="card-img-top" alt="Kit Démarrage" style="height:260px;object-fit:cover;">
             <div class="card-body">
               <span class="badge rounded-pill mb-2" style="background: color-mix(in srgb, var(--accent-color), transparent 70%); color: var(--heading-color); font-weight: 700;">Basic</span>
               <h3 class="h5 mb-2" data-i18n="products.card1.title">Kit Démarrage</h3>
@@ -202,7 +206,7 @@
 
         <div class="col-lg-4 col-md-6">
           <div class="card h-100 border-0 shadow-sm">
-            <img src="assets/img/products/purkit-pro.jpg" class="card-img-top" alt="Kit Avancé" style="height:260px;object-fit:cover;">
+            <img src="assets/img/kit medium image.png" class="card-img-top" alt="Kit Avancé" style="height:260px;object-fit:cover;">
             <div class="card-body">
               <span class="badge rounded-pill mb-2" style="background: color-mix(in srgb, var(--accent-color), transparent 70%); color: var(--heading-color); font-weight: 700;">Basic Plus</span>
               <h3 class="h5 mb-2" data-i18n="products.card2.title">Kit Avancé</h3>
@@ -239,6 +243,7 @@
     </div>
   </section>
 
+  <!-- ✅ RESSOURCES: onglets changés pour Microplastiques / Revêtements toxiques / Astuces -->
   <section id="resources" class="features section light-background">
     <div class="container section-title" data-aos="fade-up">
       <h2 data-i18n="resources.h2">Ressources</h2>
@@ -246,53 +251,66 @@
     </div>
 
     <div class="container">
+      <!-- ✅ Tabs -->
       <ul class="nav nav-tabs row d-flex" data-aos="fade-up" data-aos-delay="100">
         <li class="nav-item col-6 col-md-4">
-          <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#pk-tab-1">
-            <i class="bi bi-shield-check"></i>
-            <h4 class="d-none d-lg-block" data-i18n="resources.tab1">Contaminants au quotidien</h4>
+          <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#pk-tab-micro">
+            <i class="bi bi-droplet"></i>
+            <h4 class="d-none d-lg-block" data-i18n="resources.tabMicro">Microplastiques</h4>
           </a>
         </li>
 
         <li class="nav-item col-6 col-md-4">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pk-tab-2">
-            <i class="bi bi-journal-text"></i>
-            <h4 class="d-none d-lg-block" data-i18n="resources.tab2">Guide d'instructions PurKit</h4>
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pk-tab-coatings">
+            <i class="bi bi-shield-exclamation"></i>
+            <h4 class="d-none d-lg-block" data-i18n="resources.tabCoatings">Revêtements toxiques</h4>
           </a>
         </li>
 
         <li class="nav-item col-6 col-md-4">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pk-tab-3">
-            <i class="bi bi-droplet-half"></i>
-            <h4 class="d-none d-lg-block" data-i18n="resources.tab3">Réduire l'exposition, simplement</h4>
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pk-tab-tips">
+            <i class="bi bi-lightbulb"></i>
+            <h4 class="d-none d-lg-block" data-i18n="resources.tabTips">Astuces</h4>
           </a>
         </li>
       </ul>
 
+      <!-- ✅ Content -->
       <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="tab-pane fade active show" id="pk-tab-1">
+        <!-- 1) Microplastiques -->
+        <div class="tab-pane fade active show" id="pk-tab-micro">
           <div class="row gy-4 align-items-center">
             <div class="col-lg-6 order-2 order-lg-1">
-              <h3 data-i18n="resources.s1.title">Contaminants au quotidien</h3>
-              <p data-i18n="resources.s1.p1">
-                La cuisine est l’un des principaux environnements d’exposition à certains contaminants du quotidien. Microplastiques, matériaux synthétiques et revêtements peuvent, dans certaines conditions d’usage, contribuer à une exposition répétée. Comprendre ces sources permet d’adopter des alternatives simples qui font une réelle différence à long terme.
+
+              <h3 data-i18n="resources.micro.title">Microplastiques</h3>
+
+              <p data-i18n="resources.micro.p1">
+                Les microplastiques sont aujourd’hui très présents dans notre quotidien, surtout dans la cuisine. L’utilisation de contenants ou d’ustensiles en plastique, ainsi que l’air intérieur et l’eau potable, contribue à notre exposition. Même si elle est difficile à éviter, cette exposition peut être réduite grâce à des alternatives plus durables.
               </p>
 
-              <h5 class="mt-3" data-i18n="resources.s1.h5a">Microplastiques</h5>
-              <p data-i18n="resources.s1.p2">
-                L’exposition est fréquente et provient notamment du chauffage du plastique, de l’utilisation d’ustensiles et de planches en plastique, ainsi que de l’eau potable et de l’air intérieur. Des études récentes ont mis en évidence la présence de microplastiques dans le sang, les poumons, le placenta et le lait maternel, soulignant leur caractère omniprésent.
+              <p data-i18n="resources.micro.p2">
+                Des études ont montré que des microplastiques sont présents dans le corps humain, notamment dans le sang et les poumons. Leur présence pourrait avoir des effets négatifs sur la santé, comme l’inflammation ou le transport de substances chimiques indésirables, dont les impacts à long terme sont encore étudiés.
               </p>
 
-              <h5 class="mt-3" data-i18n="resources.s1.h5b">PTFE / PFAS</h5>
-              <p data-i18n="resources.s1.p3">
-                Certains revêtements antiadhésifs à base de PTFE peuvent se dégrader lorsqu’ils sont exposés à des températures élevées (environ 260 °C et plus) ou à une usure répétée, augmentant le risque de relargage de composés indésirables au fil du temps.
+              <p class="mb-3" data-i18n="resources.micro.p3">
+                Les microplastiques sont de très petits fragments de plastique, de moins de 5 mm, présents dans l’air, l’eau et les aliments. C’est pourquoi les autorités recommandent de limiter l’exposition lorsque des solutions plus sûres sont disponibles.
               </p>
 
-              <h5 class="mt-3" data-i18n="resources.s1.h5c">Notre approche</h5>
-              <p class="mb-0" data-i18n="resources.s1.p4">
-                L’objectif n’est pas la perfection, mais la réduction de l’exposition lorsque des options réalistes existent. Le choix de matériaux plus durables, combiné à de bonnes pratiques d’utilisation et d’entretien, permet de limiter ces sources courantes sans complexifier le quotidien.
-              </p>
+              <div class="d-flex flex-column gap-2">
+                <a class="btn btn-outline-secondary" target="_blank" rel="noopener"
+                   href="https://www.europarl.europa.eu/topics/fr/article/20181116STO19217/microplastiques-sources-impact-et-solutions">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>
+                  <span data-i18n="resources.micro.link1">Provenances des contaminants (UE)</span>
+                </a>
+
+                <a class="btn btn-outline-secondary" target="_blank" rel="noopener"
+                   href="https://www.lapresse.ca/actualites/sante/2026-01-25/de-nouvelles-donnees-indigestes-sur-les-microplastiques.php?sharing=true">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>
+                  <span data-i18n="resources.micro.link2">Ingestion et conséquences (La Presse)</span>
+                </a>
+              </div>
+
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -301,44 +319,72 @@
           </div>
         </div>
 
-        <div class="tab-pane fade" id="pk-tab-2">
+        <!-- 2) Revêtements toxiques -->
+        <div class="tab-pane fade" id="pk-tab-coatings">
           <div class="row gy-4 align-items-center">
             <div class="col-lg-6 order-2 order-lg-1">
-              <h3 data-i18n="resources.s2.title">Guide d’instructions PurKit</h3>
-              <p data-i18n="resources.s2.p1">
-                Ce guide présente des consignes simples et concrètes pour utiliser et entretenir les éléments du kit PurKit. L’objectif est de cuisiner plus sainement, tout en préservant la performance et la durabilité des équipements au fil du temps.
+
+              <h3 data-i18n="resources.coatings.title">Revêtements toxiques</h3>
+
+              <p data-i18n="resources.coatings.p1">
+                La plupart des poêles antiadhésives utilisent un revêtement appelé PTFE, efficace pour empêcher les aliments de coller, mais qui présente certains risques s’il est mal utilisé.
               </p>
 
-              <ul class="mt-3">
-                <li data-i18n-html="resources.s2.li1"><strong>Poêle en acier inoxydable :</strong> Préchauffer jusqu’à l’apparition de légères perles d’eau, ajouter une quantité modérée de matière grasse, puis procéder à la cuisson.</li>
-                <li data-i18n-html="resources.s2.li2"><strong>Poêle à revêtement céramique :</strong> Utiliser une chaleur douce à moyenne. Éviter les outils abrasifs ou métalliques.</li>
-                <li data-i18n-html="resources.s2.li3"><strong>Contenants en verre :</strong> Laisser reposer 5 à 10 minutes avant de fermer. Fermer à la main, sans forcer.</li>
-                <li data-i18n-html="resources.s2.li4"><strong>Planches à découper :</strong> Huile minérale (facultatif). Dédier une planche à la viande crue. Séchage complet à l’air (idéalement vertical).</li>
-                <li data-i18n-html="resources.s2.li5"><strong>Brosse à vaisselle :</strong> Retirer l’excédent d’eau et laisser sécher rapidement pour limiter le développement bactérien.</li>
-              </ul>
+              <p data-i18n="resources.coatings.p2">
+                Lorsqu’il est chauffé à très haute température ou abîmé par des rayures et des ustensiles inadaptés, le PTFE peut se détériorer et libérer de petites particules pouvant se retrouver dans les aliments. Les effets à long terme de cette exposition sont encore à l’étude, mais ils suscitent des inquiétudes.
+              </p>
+
+              <p class="mb-3" data-i18n="resources.coatings.p3">
+                Le PTFE fait partie des PFAS, des substances très persistantes dans l’environnement. Réduire l’usage de ces revêtements, éviter la surchauffe et choisir des matériaux plus durables permet de limiter l’exposition à ces substances.
+              </p>
+
+              <div class="d-flex flex-column gap-2">
+                <a class="btn btn-outline-secondary" target="_blank" rel="noopener"
+                   href="https://www.franceinfo.fr/economie/on-a-jete-toutes-nos-poeles-anti-adhesives-le-debat-sur-les-polluants-eternels-chamboule-nos-habitudes-et-nos-placards-de-cuisine_6950741.html">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>
+                  <span data-i18n="resources.coatings.link1">PFAS (franceinfo)</span>
+                </a>
+
+                <a class="btn btn-outline-secondary" target="_blank" rel="noopener"
+                   href="https://www.protegez-vous.ca/habitation/poeles-antiadhesives/poeles-antiadhesives-dangers-sante">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>
+                  <span data-i18n="resources.coatings.link2">Revêtement antiadhésif (Protégez-Vous)</span>
+                </a>
+              </div>
+
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="assets/img/guide.png" alt="" class="img-fluid rounded-4">
+              <img src="assets/img/contaminant.png" alt="" class="img-fluid rounded-4">
             </div>
           </div>
         </div>
 
-        <div class="tab-pane fade" id="pk-tab-3">
+        <!-- 3) Astuces -->
+        <div class="tab-pane fade" id="pk-tab-tips">
           <div class="row gy-4 align-items-center">
             <div class="col-lg-6 order-2 order-lg-1">
-              <h3 data-i18n="resources.s3.title">Réduire l’exposition, simplement</h3>
-              <p data-i18n="resources.s3.p1">
-                Réduire l’exposition au quotidien ne passe pas par la perfection, mais par l’adoption de gestes simples, cohérents et durables. Intégrées progressivement, ces mesures contribuent à améliorer l’environnement intérieur sans alourdir les routines.
-              </p>
+
+              <h3 data-i18n="resources.tips.title">Astuces</h3>
 
               <ul class="mt-3">
-                <li data-i18n-html="resources.s3.li1"><strong>Cuisine :</strong> éviter le plastique exposé à la chaleur. Privilégier verre, inox, céramique pour cuisson et stockage.</li>
-                <li data-i18n-html="resources.s3.li2"><strong>Eau :</strong> filtration certifiée si possible. Favoriser bouilloires/carafes/gourdes sans plastique en contact avec l’eau chaude.</li>
-                <li data-i18n-html="resources.s3.li3"><strong>Bouteilles :</strong> limiter l’usage unique. Opter pour des contenants durables (ex. acier inoxydable).</li>
-                <li data-i18n-html="resources.s3.li4"><strong>Lessive :</strong> laver moins souvent les synthétiques, à froid, cycles doux, sacs capteurs de microfibres.</li>
-                <li data-i18n-html="resources.s3.li5"><strong>Entretien ménager :</strong> limiter les aérosols, aérer, aspirateur HEPA, nettoyage humide plutôt qu’à sec.</li>
+                <li data-i18n="resources.tips.li1">Éviter de chauffer ou de conserver des aliments chauds dans du plastique; privilégier le verre, l’acier inoxydable ou la céramique.</li>
+                <li data-i18n="resources.tips.li2">Réduire l’utilisation de bouteilles en plastique à usage unique et privilégier des gourdes, carafes et bouilloires sans plastique, idéalement en métal ou en verre.</li>
+                <li data-i18n="resources.tips.li3">Améliorer la qualité de l’eau potable en utilisant un système de filtration certifié, comme l’osmose inversée, afin de réduire la présence de microplastiques et d’autres contaminants.</li>
+                <li data-i18n="resources.tips.li4">Favoriser les vêtements en fibres naturelles et laver les textiles synthétiques moins souvent, à froid et sur des cycles doux.</li>
+                <li data-i18n="resources.tips.li5">Utiliser une lessive simple, sans parfum ni additifs inutiles.</li>
+                <li data-i18n="resources.tips.li6">Limiter les produits ménagers parfumés ou en aérosol et bien aérer pendant et après le ménage.</li>
+                <li data-i18n="resources.tips.li7">Nettoyer avec des méthodes humides et utiliser un aspirateur muni d’un filtre HEPA lorsque possible.</li>
               </ul>
+
+              <div class="d-flex flex-column gap-2 mt-3">
+                <a class="btn btn-outline-secondary" target="_blank" rel="noopener"
+                   href="https://www.geo.fr/environnement/comment-se-proteger-des-microplastiques-decouvrez-ces-conseils-issus-de-la-recherche-scientifique-225101">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>
+                  <span data-i18n="resources.tips.link1">Comment se protéger (GEO)</span>
+                </a>
+              </div>
+
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -527,42 +573,65 @@
         p1: "PurKit propose des kits regroupant plusieurs produits du quotidien, soigneusement sélectionnés comme des alternatives plus saines et tout aussi efficaces. Chaque kit est conçu pour remplacer facilement des produits courants, sans compliquer vos habitudes.",
         p2: "Les produits inclus dans les kits aident à réduire l’exposition aux microplastiques et à d’autres substances fréquemment présentes dans les produits traditionnels. Chaque kit est accompagné de guides simples et pratiques pour encourager de meilleures habitudes au quotidien.",
         p3: "Avec PurKit, plus besoin de passer des heures à comparer les options. Tout est déjà sélectionné et regroupé au même endroit pour vous faire gagner du temps et simplifier la transition vers des choix plus sains.",
-
       },
       resources: {
-        h2: "Ressources", subtitle: "GUIDES & INFORMATIONS", tab1: "Contaminants au quotidien", tab2: "Guide d'instructions PurKit", tab3: "Réduire l'exposition, simplement",
-        s1: { title: "Contaminants au quotidien", p1: "La cuisine est l’un des principaux environnements d’exposition à certains contaminants du quotidien. Microplastiques, matériaux synthétiques et revêtements peuvent, dans certaines conditions d’usage, contribuer à une exposition répétée. Comprendre ces sources permet d’adopter des alternatives simples qui font une réelle différence à long terme.",
-          h5a: "Microplastiques", p2: "L’exposition est fréquente et provient notamment du chauffage du plastique, de l’utilisation d’ustensiles et de planches en plastique, ainsi que de l’eau potable et de l’air intérieur. Des études récentes ont mis en évidence la présence de microplastiques dans le sang, les poumons, le placenta et le lait maternel, soulignant leur caractère omniprésent.",
-          h5b: "PTFE / PFAS", p3: "Certains revêtements antiadhésifs à base de PTFE peuvent se dégrader lorsqu’ils sont exposés à des températures élevées (environ 260 °C et plus) ou à une usure répétée, augmentant le risque de relargage de composés indésirirables au fil du temps.",
-          h5c: "Notre approche", p4: "L’objectif n’est pas la perfection, mais la réduction de l’exposition lorsque des options réalistes existent. Le choix de matériaux plus durables, combiné à de bonnes pratiques d’utilisation et d’entretien, permet de limiter ces sources courantes sans complexifier le quotidien."
+        h2: "Ressources",
+        subtitle: "GUIDES & INFORMATIONS",
+
+        /* ✅ nouveaux onglets */
+        tabMicro: "Microplastiques",
+        tabCoatings: "Revêtements toxiques",
+        tabTips: "Astuces",
+
+        /* ✅ Contenu Microplastiques */
+        micro: {
+          title: "Microplastiques",
+          p1: "Les microplastiques sont aujourd’hui très présents dans notre quotidien, surtout dans la cuisine. L’utilisation de contenants ou d’ustensiles en plastique, ainsi que l’air intérieur et l’eau potable, contribue à notre exposition. Même si elle est difficile à éviter, cette exposition peut être réduite grâce à des alternatives plus durables.",
+          p2: "Des études ont montré que des microplastiques sont présents dans le corps humain, notamment dans le sang et les poumons. Leur présence pourrait avoir des effets négatifs sur la santé, comme l’inflammation ou le transport de substances chimiques indésirables, dont les impacts à long terme sont encore étudiés.",
+          p3: "Les microplastiques sont de très petits fragments de plastique, de moins de 5 mm, présents dans l’air, l’eau et les aliments. C’est pourquoi les autorités recommandent de limiter l’exposition lorsque des solutions plus sûres sont disponibles.",
+          link1: "Provenances des contaminants (UE)",
+          link2: "Ingestion et conséquences (La Presse)"
         },
-        s2: { title: "Guide d’instructions PurKit", p1: "Ce guide présente des consignes simples et concrètes pour utiliser et entretenir les éléments du kit PurKit. L’objectif est de cuisiner plus sainement, tout en préservant la performance et la durabilité des équipements au fil du temps.",
-          li1: "<strong>Poêle en acier inoxydable :</strong> Préchauffer jusqu’à l’apparition de légères perles d’eau, ajouter une quantité modérée de matière grasse, puis procéder à la cuisson.",
-          li2: "<strong>Poêle à revêtement céramique :</strong> Utiliser une chaleur douce à moyenne. Éviter les outils abrasifs ou métalliques.",
-          li3: "<strong>Contenants en verre :</strong> Laisser reposer 5 à 10 minutes avant de fermer. Fermer à la main, sans forcer.",
-          li4: "<strong>Planches à découper :</strong> Huile minérale (facultatif). Dédier une planche à la viande crue. Séchage complet à l’air (idéalement vertical).",
-          li5: "<strong>Brosse à vaisselle :</strong> Retirer l’excédent d’eau et laisser sécher rapidement pour limiter le développement bactérien."
+
+        /* ✅ Contenu Revêtements toxiques */
+        coatings: {
+          title: "Revêtements toxiques",
+          p1: "La plupart des poêles antiadhésives utilisent un revêtement appelé PTFE, efficace pour empêcher les aliments de coller, mais qui présente certains risques s’il est mal utilisé.",
+          p2: "Lorsqu’il est chauffé à très haute température ou abîmé par des rayures et des ustensiles inadaptés, le PTFE peut se détériorer et libérer de petites particules pouvant se retrouver dans les aliments. Les effets à long terme de cette exposition sont encore à l’étude, mais ils suscitent des inquiétudes.",
+          p3: "Le PTFE fait partie des PFAS, des substances très persistantes dans l’environnement. Réduire l’usage de ces revêtements, éviter la surchauffe et choisir des matériaux plus durables permet de limiter l’exposition à ces substances.",
+          link1: "PFAS (franceinfo)",
+          link2: "Revêtement antiadhésif (Protégez-Vous)"
         },
-        s3: { title: "Réduire l’exposition, simplement", p1: "Réduire l’exposition au quotidien ne passe pas par la perfection, mais par l’adoption de gestes simples, cohérents et durables. Intégrées progressivement, ces mesures contribuent à améliorer l’environnement intérieur sans alourdir les routines.",
-          li1: "<strong>Cuisine :</strong> éviter le plastique exposé à la chaleur. Privilégier verre, inox, céramique pour cuisson et stockage.",
-          li2: "<strong>Eau :</strong> filtration certifiée si possible. Favoriser bouilloires/carafes/gourdes sans plastique en contact avec l’eau chaude.",
-          li3: "<strong>Bouteilles :</strong> limiter l’usage unique. Opter pour des contenants durables (ex. acier inoxydable).",
-          li4: "<strong>Lessive :</strong> laver moins souvent les synthétiques, à froid, cycles doux, sacs capteurs de microfibres.",
-          li5: "<strong>Entretien ménager :</strong> limiter les aérosols, aérer, aspirateur HEPA, nettoyage humide plutôt qu’à sec."
+
+        /* ✅ Contenu Astuces */
+        tips: {
+          title: "Astuces",
+          li1: "Éviter de chauffer ou de conserver des aliments chauds dans du plastique; privilégier le verre, l’acier inoxydable ou la céramique.",
+          li2: "Réduire l’utilisation de bouteilles en plastique à usage unique et privilégier des gourdes, carafes et bouilloires sans plastique, idéalement en métal ou en verre.",
+          li3: "Améliorer la qualité de l’eau potable en utilisant un système de filtration certifié, comme l’osmose inversée, afin de réduire la présence de microplastiques et d’autres contaminants.",
+          li4: "Favoriser les vêtements en fibres naturelles et laver les textiles synthétiques moins souvent, à froid et sur des cycles doux.",
+          li5: "Utiliser une lessive simple, sans parfum ni additifs inutiles.",
+          li6: "Limiter les produits ménagers parfumés ou en aérosol et bien aérer pendant et après le ménage.",
+          li7: "Nettoyer avec des méthodes humides et utiliser un aspirateur muni d’un filtre HEPA lorsque possible.",
+          link1: "Comment se protéger (GEO)"
         }
       },
-      products: { h2: "Produits", subtitle: "NOS KITS", buyBtn: "Acheter",
+
+      products: {
+        h2: "Produits",
+        subtitle: "NOS KITS",
+        buyBtn: "Acheter",
         card1: { title: "Kit Démarrage", desc: "Un kit simple et efficace pour commencer avec de meilleures habitudes." },
         card2: { title: "Kit Avancé", desc: "Pour une cuisine plus régulière : plus d’options et une routine plus stable." },
         card3: { title: "Kit Premium", desc: "Pensé pour les familles : organisation, durabilité et usage quotidien." }
       },
+
       buy: {
-        h2: "Acheter",
-        subtitle: "SHOP PURKIT",
         goShop: "Aller à la boutique",
         redirectTitle: "Redirection vers la boutique…",
         redirectSub: "Vous allez être dirigé vers Shopify"
       },
+
       contact: { h2: "Contact", subtitle: "Écris-nous", addressTitle: "Adresse", addressValue: "Québec, Canada", phoneTitle: "Téléphone", emailTitle: "Email" },
       forms: { name: "Nom", email: "Email", subject: "Sujet", message: "Message", loading: "Chargement...", sent: "Message envoyé. Merci !", send: "Envoyer" },
       footer: { location: "Québec, Canada", emailLabel: "Email:", navTitle: "Navigation", newsTitle: "Newsletter", newsDesc: "Reçois les nouveautés (kits, guides, mises à jour).", subscribe: "S'abonner", newsSent: "Demande envoyée. Merci !", copyrightLabel: "Copyright", rights: "All Rights Reserved" }
@@ -576,44 +645,61 @@
         h3: "Our product", h4a: "Benefits", h4b: "The PurKit advantage",
         p1: "PurKit offers kits that group everyday items selected as healthier, equally effective alternatives. Each kit is designed to replace common products without complicating your habits.",
         p2: "Items included help reduce exposure to microplastics and other substances often found in traditional products. Each kit comes with simple guides to support better daily habits.",
-        p3: "With PurKit, you don’t need to spend hours comparing options. Everything is selected and grouped in one place to save time and make the switch easier.",
-        note: "*Images are illustrative: exact contents are listed on the kit description."
+        p3: "With PurKit, you don’t need to spend hours comparing options. Everything is selected and grouped in one place to save time and make the switch easier."
       },
+
       resources: {
-        h2: "Resources", subtitle: "GUIDES & INFORMATION", tab1: "Everyday Contaminants", tab2: "PurKit Instruction Guide", tab3: "Reduce Exposure, Simply",
-        s1: { title: "Everyday contaminants", p1: "The kitchen is a major exposure environment for certain everyday contaminants. Microplastics, synthetic materials, and coatings can contribute to repeated exposure depending on use. Understanding sources helps you adopt simple alternatives that matter long-term.",
-          h5a: "Microplastics", p2: "Exposure is common from heating plastic, using plastic utensils/boards, as well as drinking water and indoor air. Recent studies detected microplastics in blood, lungs, placenta, and breast milk.",
-          h5b: "PTFE / PFAS", p3: "Some PTFE-based nonstick coatings can degrade at high temperatures (~260°C / 500°F+) or with repeated wear, increasing the risk of releasing unwanted compounds over time.",
-          h5c: "Our approach", p4: "The goal isn’t perfection — it’s reducing exposure when realistic options exist. Durable materials plus good use and care practices can limit common sources without complicating daily life."
+        h2: "Resources",
+        subtitle: "GUIDES & INFORMATION",
+
+        /* ✅ new tabs */
+        tabMicro: "Microplastics",
+        tabCoatings: "Toxic coatings",
+        tabTips: "Tips",
+
+        micro: {
+          title: "Microplastics",
+          p1: "Microplastics are now common in daily life, especially in the kitchen. Using plastic containers or utensils, along with indoor air and drinking water, contributes to exposure. While hard to avoid completely, exposure can be reduced with more durable alternatives.",
+          p2: "Studies have detected microplastics in the human body, including in blood and lungs. Their presence may be linked to negative health effects such as inflammation or carrying unwanted chemicals, though long-term impacts are still being studied.",
+          p3: "Microplastics are tiny plastic fragments under 5 mm, found in air, water, and food. That’s why authorities recommend limiting exposure when safer options are available.",
+          link1: "Sources of contaminants (EU)",
+          link2: "Ingestion & impacts (La Presse)"
         },
-        s2: { title: "PurKit instruction guide", p1: "Clear, practical steps to use and maintain kit items — cook healthier while keeping performance and durability over time.",
-          li1: "<strong>Stainless steel pan:</strong> Preheat until light water beads form, add moderate fat, then cook.",
-          li2: "<strong>Ceramic-coated pan:</strong> Use low/medium heat. Avoid abrasive/metal tools.",
-          li3: "<strong>Glass containers:</strong> Let hot food rest 5–10 minutes before sealing. Hand-tighten only.",
-          li4: "<strong>Cutting boards:</strong> Mineral oil optional. Dedicate one board for raw meat. Air-dry fully (ideally vertical).",
-          li5: "<strong>Dish brush:</strong> Remove excess water and dry quickly to limit bacterial growth."
+
+        coatings: {
+          title: "Toxic coatings",
+          p1: "Most nonstick pans use a coating called PTFE, effective at preventing sticking, but it can pose risks if used improperly.",
+          p2: "When overheated or damaged by scratches and unsuitable utensils, PTFE can degrade and release small particles that may end up in food. Long-term effects are still being studied, but concerns remain.",
+          p3: "PTFE is part of PFAS — highly persistent substances in the environment. Reducing use, avoiding overheating, and choosing durable materials can help limit exposure.",
+          link1: "PFAS (franceinfo)",
+          link2: "Nonstick coating (Protégez-Vous)"
         },
-        s3: { title: "Reduce exposure — simply", p1: "Not perfection — just consistent, durable habits. Adopt gradually to improve indoor environment without adding friction.",
-          li1: "<strong>Kitchen:</strong> avoid heating plastic; prefer glass/stainless/ceramic.",
-          li2: "<strong>Water:</strong> certified filtration when possible; avoid plastic touching hot water.",
-          li3: "<strong>Bottles:</strong> reduce single-use; choose durable containers (stainless steel).",
-          li4: "<strong>Laundry:</strong> wash synthetics less often; cold, gentle cycles; microfiber-catching bags.",
-          li5: "<strong>Cleaning:</strong> limit aerosols; ventilate; HEPA vacuum; wet-clean instead of dry dusting."
+
+        tips: {
+          title: "Tips",
+          li1: "Avoid heating or storing hot food in plastic; prefer glass, stainless steel, or ceramic.",
+          li2: "Reduce single-use plastic bottles; choose reusable bottles, carafes, and kettles without plastic, ideally metal or glass.",
+          li3: "Improve drinking water quality with a certified filtration system (e.g., reverse osmosis) to reduce microplastics and other contaminants.",
+          li4: "Favor natural fibers and wash synthetic textiles less often, in cold water, with gentle cycles.",
+          li5: "Use a simple detergent without fragrance or unnecessary additives.",
+          li6: "Limit scented household products or aerosols; ventilate during and after cleaning.",
+          li7: "Wet-clean surfaces and use a HEPA vacuum when possible.",
+          link1: "How to protect yourself (GEO)"
         }
       },
+
       products: { h2: "Products", subtitle: "OUR KITS", buyBtn: "Buy",
         card1: { title: "Starter Kit", desc: "A simple, effective kit to start better habits." },
         card2: { title: "Advanced Kit", desc: "For regular cooking: more options and a steadier routine." },
         card3: { title: "Premium Kit", desc: "Built for families: organization, durability, everyday use." }
       },
+
       buy: {
-        h2: "Buy",
-        subtitle: "SHOP PURKIT",
-        note: "*Exact kit contents are listed on the product page.",
         goShop: "Go to the shop",
         redirectTitle: "Redirecting to the shop…",
         redirectSub: "You will be taken to Shopify"
       },
+
       contact: { h2: "Contact", subtitle: "Message us", addressTitle: "Location", addressValue: "Quebec, Canada", phoneTitle: "Phone", emailTitle: "Email" },
       forms: { name: "Name", email: "Email", subject: "Subject", message: "Message", loading: "Loading...", sent: "Message sent. Thank you!", send: "Send" },
       footer: { location: "Quebec, Canada", emailLabel: "Email:", navTitle: "Navigation", newsTitle: "Newsletter", newsDesc: "Get updates (kits, guides, releases).", subscribe: "Subscribe", newsSent: "Request sent. Thank you!", copyrightLabel: "Copyright", rights: "All Rights Reserved" }
@@ -668,7 +754,6 @@
     setLanguage(saved || "fr");
   });
 </script>
-
 
 </body>
 </html>
