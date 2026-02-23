@@ -40,11 +40,19 @@ h1,h2,h3,h4,h5,h6{
 .header{
     background-color: rgba(0,0,0,0);
 }
+
+/* ✅ Hauteur globale du header (normal) */
+#header{
+    padding: 8px 0;
+}
+
+/* ✅ Barre verte au scroll (plus compacte) */
 .scrolled .header,
 .header.header-scrolled{
     background-color: rgba(7, 60, 14, 0.76);
     box-shadow: 0 0 18px rgba(0,0,0,0.12);
     backdrop-filter: blur(6px);
+    padding: 4px 0; /* 🔽 plus petit */
 }
 
 /* Nav link color (desktop) */
@@ -155,28 +163,28 @@ h1,h2,h3,h4,h5,h6{
 /* LOGO superposé */
 #hero.hero .hero-logo-overlay{
     position: absolute;
-    top: clamp(40px, 3vh, 5px);     /* ✅ ajuste ici: plus grand = plus bas */
+    top: clamp(40px, 3vh, 5px);
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
 
-    width: min(98vw, 1400px);        /* ✅ prend presque toute la largeur */
+    width: min(98vw, 1400px);
     display: flex;
     justify-content: center;
     pointer-events: none;
     padding: 0 16px;
 }
 
-/* Taille du logo */
+/* Taille du logo (hero) */
 #hero.hero .hero-logo-overlay img.hero-logo{
     width: 100%;
     height: auto;
-    max-height: 440px;               /* ✅ gros */
+    max-height: 440px;
     object-fit: contain;
     display: block;
 }
 
-/* Mobile */
+/* Mobile hero */
 @media (max-width: 576px){
     #hero.hero .hero-logo-overlay{
         top: 40px;
@@ -190,7 +198,10 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
-/* Barre header: gauche / centre / droite */
+/* ============================
+   HEADER BAR (logo/menu/lang)
+   ============================ */
+
 #header .header-bar{
     width: 100%;
     display: flex;
@@ -199,30 +210,35 @@ h1,h2,h3,h4,h5,h6{
     gap: 16px;
 }
 
-/* Logo à gauche */
 #header .header-logo{
     display: flex;
     align-items: center;
     flex: 0 0 auto;
 }
 
-/* ✅ Logo plus large + un peu plus haut */
+/* ✅ Logo complet + un peu plus gros (normal) */
 #header .header-logo img{
-    height: 140px;        /* ⬅️ + haut (avant: 120px) */
-    width: 190px;         /* ⬅️ + large (avant: 130px) */
-    max-width: none;      /* ⬅️ important: ne pas limiter artificiellement */
+    height: 160px;
+    width: auto;
+    max-width: 270px;
     object-fit: contain;
     display: block;
 }
 
-/* Menu centré */
+/* ✅ Au scroll : logo un peu plus gros aussi */
+.scrolled #header .header-logo img,
+.header.header-scrolled .header-logo img{
+    height: 130px;      /* ⬆️ un peu plus gros (avant 64) */
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+}
+
 #header .navmenu{
     flex: 1 1 auto;
     display: flex;
-
 }
 
-/* Langue à droite */
 #header .lang-switch{
     display: flex;
     align-items: center;
@@ -230,9 +246,35 @@ h1,h2,h3,h4,h5,h6{
     flex: 0 0 auto;
 }
 
-/* Mobile: logo + langue visibles, menu géré par ton toggle */
-@media (max-width: 576px){
-    #header .header-logo img{ height: 36px; max-width: 150px; }
+.scrolled #header .header-bar,
+.header.header-scrolled .header-bar{
+    padding: 0 !important;
 }
 
+/* Mobile */
+@media (max-width: 576px){
+    #header .header-logo img{
+        height: 50px;     /* ⬆️ un peu plus gros */
+        width: auto;
+        max-width: 175px;
+    }
+    .scrolled #header .header-logo img,
+    .header.header-scrolled .header-logo img{
+        height: 170px;     /* ⬆️ un peu plus gros */
+        max-width: 150px;
+    }
+}
 
+/* Mobile: logo + langue visibles, menu géré par ton toggle */
+@media (max-width: 576px){
+    #header .header-logo img{
+        height: 44px;
+        width: auto;
+        max-width: 160px;
+    }
+    .scrolled #header .header-logo img,
+    .header.header-scrolled .header-logo img{
+        height: 36px;
+        max-width: 140px;
+    }
+}
