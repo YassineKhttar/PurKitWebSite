@@ -7,18 +7,18 @@
     --surface-color: #fffaf2;
 
     --default-color: #2f2f2f;
-    --heading-color: #4f8f63;
+    --heading-color: #1c3a26;
 
     --accent-color: #4f8f63;
     --contrast-color: #ffffff;
 
     --nav-color: #eef3ee;
-    --nav-hover-color: #a8d5b5;
+    --nav-hover-color: #19271d;
 
     --nav-mobile-background-color: #fffaf2;
     --nav-dropdown-background-color: #fffaf2;
     --nav-dropdown-color: #2f2f2f;
-    --nav-dropdown-hover-color: #4f8f63;
+    --nav-dropdown-hover-color: #023512;
 
     scroll-behavior: smooth;
 }
@@ -42,7 +42,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .scrolled .header,
 .header.header-scrolled{
-    background-color: #4f8f63;
+    background-color: rgba(7, 60, 14, 0.76);
     box-shadow: 0 0 18px rgba(0,0,0,0.12);
     backdrop-filter: blur(6px);
 }
@@ -205,10 +205,12 @@ h1,h2,h3,h4,h5,h6{
     align-items: center;
     flex: 0 0 auto;
 }
+
+/* ✅ Logo plus large + un peu plus haut */
 #header .header-logo img{
-    height: 90px;       /* ajuste */
-    width: auto;
-    max-width: 350px;
+    height: 140px;        /* ⬅️ + haut (avant: 120px) */
+    width: 190px;         /* ⬅️ + large (avant: 130px) */
+    max-width: none;      /* ⬅️ important: ne pas limiter artificiellement */
     object-fit: contain;
     display: block;
 }
