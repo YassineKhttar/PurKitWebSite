@@ -686,7 +686,7 @@ section, .section{
 
   /* icône un peu plus petite */
   #hero .hero-actions .btn-watch-video i{
-    font-size: 14px;
+    font-size: 12px;
   }
 
   /* le span ne doit pas forcer un wrap */
@@ -750,4 +750,47 @@ html{
 /* (optionnel) si certaines sections ont overflow caché, ça peut couper le dropdown */
 section, .section{
   overflow: visible;
+}
+@media (min-width:1200px){
+  .navmenu>ul>li>a:before{
+    content:"";
+    position:absolute;      /* ✅ au lieu de fixed */
+    left:0;
+    bottom:-6px;
+    height:2px;
+    width:0;
+    background: var(--nav-hover-color);
+    transition:.2s;
+    visibility:hidden;
+  }
+}
+/* HEADER toujours au-dessus */
+#header{
+  position: fixed;         /* au cas où */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000 !important;
+}
+
+/* Nav + dropdown au-dessus aussi */
+#navmenu, #navmenu ul{
+  position: relative;
+  z-index: 100001 !important;
+}
+
+/* Si tu as des dropdowns (li.dropdown > ul) */
+#navmenu .dropdown ul{
+  z-index: 100002 !important;
+}
+
+/* Très important: certains effets (AOS/transform) créent un stacking context
+   => on force le main à être en dessous */
+main, section{
+  position: relative;
+  z-index: 1;
+}
+html{ scroll-padding-top: 110px; }
+@media (max-width:1199px){
+  html{ scroll-padding-top: 86px; }
 }
