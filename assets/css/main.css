@@ -694,27 +694,60 @@ section, .section{
     white-space: nowrap;
   }
 }
-/* ==============================
-   Mobile nav dropdown - Always on top
-   ============================== */
+/* =========================================================
+   FIX: Header / Dropdown / Scroll offset (important)
+   Mets ça tout à la fin du fichier CSS
+   ========================================================= */
 
-/* le header doit rester au-dessus du contenu */
+/* 1) Le header doit toujours rester au-dessus de tout */
 #header.header{
-  z-index: 99999 !important;
+  z-index: 9999 !important;
 }
 
-/* le voile + conteneur nav en mode mobile */
-.mobile-nav-active .navmenu{
-  z-index: 99998 !important;
+/* 2) Donne un contexte de position au header (utile pour z-index) */
+#header .header-bar{
+  position: relative;
+  z-index: 10000;
 }
 
-/* la boîte du menu (dropdown) */
-.mobile-nav-active .navmenu > ul{
-  z-index: 99999 !important;
-  position: fixed !important;   /* clé: évite l'effet "derrière" en scroll */
+/* 3) Dropdowns / menus: z-index très haut */
+.navmenu,
+.navmenu ul{
+  position: relative;
+  z-index: 10001;
 }
 
-/* bouton burger / X au-dessus */
-.mobile-nav-active .mobile-nav-toggle{
-  z-index: 100000 !important;
+/* Dropdown BootstrapMade (desktop) */
+@media (min-width: 1200px){
+  .navmenu .dropdown ul{
+    z-index: 10002 !important;
+  }
+}
+
+/* 4) Mobile overlay + menu: le menu doit être au-dessus du fond sombre */
+@media (max-width: 1199px){
+  .mobile-nav-active .navmenu{
+    z-index: 10000 !important; /* overlay */
+  }
+  .mobile-nav-active .navmenu > ul{
+    z-index: 10001 !important; /* le panneau menu */
+  }
+  .mobile-nav-active .mobile-nav-toggle{
+    z-index: 10002 !important; /* le X / icône */
+  }
+}
+
+/* 5) FIX scroll: quand tu cliques un lien (#section), il faut compenser le header fixe */
+html{
+  scroll-padding-top: 110px; /* desktop (ajuste si besoin) */
+}
+
+/* Sur mobile, header souvent plus petit */
+@media (max-width: 1199px){
+  html{ scroll-padding-top: 86px; }
+}
+
+/* (optionnel) si certaines sections ont overflow caché, ça peut couper le dropdown */
+section, .section{
+  overflow: visible;
 }
