@@ -316,3 +316,85 @@ h1,h2,h3,h4,h5,h6{
 @media (max-width: 576px){
     :root{ --pk-header-h: 72px; } /* mobile */
 }
+/* =========================================================
+   MOBILE NAV — vert + toujours au-dessus (ne disparaît pas)
+   ========================================================= */
+
+/* le header reste au-dessus de tout */
+#header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100000 !important;
+}
+
+/* IMPORTANT: évite que des sections "créent" un stacking context au-dessus */
+main, section, .section{
+    position: relative;
+    z-index: 1;
+}
+
+/* hauteur du header utilisée pour placer le panneau en dessous */
+:root{ --pk-header-h: 86px; }
+@media (max-width: 576px){
+    :root{ --pk-header-h: 72px; }
+}
+
+@media (max-width: 1199px){
+
+    /* overlay plein écran (vert) */
+    .mobile-nav-active .navmenu{
+        position: fixed !important;
+        inset: 0 !important;
+        background: rgba(7, 60, 14, 0.92) !important; /* ✅ vert visible */
+        z-index: 100001 !important;
+    }
+
+    /* panneau menu sous le header, plein écran (vert aussi) */
+    .mobile-nav-active .navmenu > ul{
+        position: fixed !important;
+        top: var(--pk-header-h) !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+
+        margin: 0 !important;
+        border-radius: 0 !important;
+
+        background: rgba(7, 60, 14, 0.98) !important; /* ✅ vert solide */
+        border: 0 !important;
+
+        padding: 14px 0 18px 0 !important;
+        overflow-y: auto !important;
+
+        z-index: 100002 !important;
+    }
+
+    /* liens en blanc (lisibles) */
+    .mobile-nav-active .navmenu a,
+    .mobile-nav-active .navmenu a:focus{
+        color: #fff !important;
+        padding: 14px 22px !important;
+        font-size: 18px !important;
+        justify-content: flex-start !important;
+    }
+
+    /* état hover/tap */
+    .mobile-nav-active .navmenu a:hover{
+        background: rgba(255,255,255,0.12) !important;
+        color: #fff !important;
+    }
+
+    /* enlever le highlight noir au tap sur mobile */
+    .mobile-nav-active .navmenu a{
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    }
+
+    /* bouton X / burger toujours visible */
+    .mobile-nav-active .mobile-nav-toggle{
+        position: fixed !important;
+        top: 16px !important;
+        right: 16px !important;
+        z-index: 100003 !important;
+        color: #fff !important;
+    }
+}
