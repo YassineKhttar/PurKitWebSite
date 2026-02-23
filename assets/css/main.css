@@ -650,40 +650,48 @@ section, .section{
   }
 }
 /* ==============================
-   HERO buttons - Mobile layout fix
+   HERO buttons - Mobile: narrower + single line
    ============================== */
 @media (max-width: 576px){
 
-  /* le bloc des 3 boutons */
   #hero .hero-actions{
     display: flex !important;
     flex-direction: column !important;
-    align-items: stretch !important;
+    align-items: center !important;   /* centre les boutons */
     width: 100%;
     gap: 12px;
   }
 
-  /* chaque bouton prend toute la largeur */
+  /* boutons plus étroits, centrés */
   #hero .hero-actions .btn-get-started,
   #hero .hero-actions .btn-watch-video{
-    width: 100%;
+    width: min(92%, 360px);          /* ⬅️ ajuste ici (ex: 88% ou 340px) */
     justify-content: center;
     text-align: center;
+
+    white-space: nowrap;             /* ⬅️ 1 seule ligne */
+    overflow: hidden;                /* évite le débordement */
+    text-overflow: ellipsis;         /* "..." si vraiment trop long */
+    line-height: 1.1;
+
     padding: 12px 14px;
-    white-space: normal;     /* important pour le texte long */
-    line-height: 1.2;
   }
 
-  /* icône + texte bien alignés */
+  /* optionnel: réduire un peu la taille pour éviter le wrap */
+  #hero .hero-actions .btn-get-started,
   #hero .hero-actions .btn-watch-video{
-    gap: 10px;
+    font-size: 13px;                 /* ⬅️ ajuste si nécessaire */
+    letter-spacing: .2px;
   }
 
-  /* éviter que le texte déborde sur 1 ligne trop longue */
+  /* icône un peu plus petite */
+  #hero .hero-actions .btn-watch-video i{
+    font-size: 16px;
+  }
+
+  /* le span ne doit pas forcer un wrap */
   #hero .hero-actions .btn-watch-video span{
-    display: inline-block;
-    max-width: 100%;
-    word-break: break-word;
+    white-space: nowrap;
   }
 }
 /* ==============================
