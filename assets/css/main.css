@@ -649,3 +649,64 @@ section, .section{
     margin-top: 0;
   }
 }
+/* ==============================
+   HERO buttons - Mobile layout fix
+   ============================== */
+@media (max-width: 576px){
+
+  /* le bloc des 3 boutons */
+  #hero .hero-actions{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100%;
+    gap: 12px;
+  }
+
+  /* chaque bouton prend toute la largeur */
+  #hero .hero-actions .btn-get-started,
+  #hero .hero-actions .btn-watch-video{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 14px;
+    white-space: normal;     /* important pour le texte long */
+    line-height: 1.2;
+  }
+
+  /* icône + texte bien alignés */
+  #hero .hero-actions .btn-watch-video{
+    gap: 10px;
+  }
+
+  /* éviter que le texte déborde sur 1 ligne trop longue */
+  #hero .hero-actions .btn-watch-video span{
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-word;
+  }
+}
+/* ==============================
+   Mobile nav dropdown - Always on top
+   ============================== */
+
+/* le header doit rester au-dessus du contenu */
+#header.header{
+  z-index: 99999 !important;
+}
+
+/* le voile + conteneur nav en mode mobile */
+.mobile-nav-active .navmenu{
+  z-index: 99998 !important;
+}
+
+/* la boîte du menu (dropdown) */
+.mobile-nav-active .navmenu > ul{
+  z-index: 99999 !important;
+  position: fixed !important;   /* clé: évite l'effet "derrière" en scroll */
+}
+
+/* bouton burger / X au-dessus */
+.mobile-nav-active .mobile-nav-toggle{
+  z-index: 100000 !important;
+}
