@@ -665,7 +665,7 @@ section, .section{
   /* boutons plus étroits, centrés */
   #hero .hero-actions .btn-get-started,
   #hero .hero-actions .btn-watch-video{
-    width: min(92%, 360px);          /* ⬅️ ajuste ici (ex: 88% ou 340px) */
+    width: min(75%, 360px);          /* ⬅️ ajuste ici (ex: 88% ou 340px) */
     justify-content: center;
     text-align: center;
 
