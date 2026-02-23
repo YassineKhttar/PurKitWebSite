@@ -168,7 +168,7 @@ section, .section{
   }
   .navmenu>ul>li>a:before{
     content:"";
-    position:absolute;
+    position:fixed;
     left:0;
     bottom:-6px;
     height:2px;
