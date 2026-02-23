@@ -355,7 +355,7 @@
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="assets/img/contaminant.png" alt="" class="img-fluid rounded-4">
+              <img src="assets/img/guide.png" alt="" class="img-fluid rounded-4">
             </div>
           </div>
         </div>
@@ -436,17 +436,36 @@
         </div>
 
         <div class="col-lg-6">
-          <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+          <form name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                class="php-email-form"
+                data-aos="fade-up"
+                data-aos-delay="500"
+                action="/success.html">
+
+            <!-- obligatoire pour Netlify -->
+            <input type="hidden" name="form-name" value="contact">
+
+            <!-- honeypot anti-bot (ne pas afficher) -->
+            <p style="display:none;">
+              <label>Ne pas remplir: <input name="bot-field"></label>
+            </p>
+
             <div class="row gy-4">
               <div class="col-md-6">
                 <input type="text" name="name" class="form-control" placeholder="Nom" required data-i18n-placeholder="forms.name">
               </div>
+
               <div class="col-md-6">
                 <input type="email" class="form-control" name="email" placeholder="Email" required data-i18n-placeholder="forms.email">
               </div>
+
               <div class="col-md-12">
                 <input type="text" class="form-control" name="subject" placeholder="Sujet" required data-i18n-placeholder="forms.subject">
               </div>
+
               <div class="col-md-12">
                 <textarea class="form-control" name="message" rows="4" placeholder="Message" required data-i18n-placeholder="forms.message"></textarea>
               </div>
