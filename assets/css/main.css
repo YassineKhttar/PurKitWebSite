@@ -686,7 +686,7 @@ section, .section{
 
   /* icône un peu plus petite */
   #hero .hero-actions .btn-watch-video i{
-    font-size: 16px;
+    font-size: 14px;
   }
 
   /* le span ne doit pas forcer un wrap */
