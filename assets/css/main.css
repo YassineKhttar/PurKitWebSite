@@ -566,3 +566,32 @@ section, .section{
   0%{ transform:rotate(0deg); }
   100%{ transform:rotate(360deg); }
 }
+
+/* --- Tabs Resources: mobile fix --- */
+@media (max-width: 576px){
+  .features .nav-tabs{
+    row-gap: 12px;
+  }
+
+  .features .nav-tabs .nav-item{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .features .nav-link{
+    justify-content: flex-start;
+    padding: 14px 14px;
+  }
+
+  .features .nav-link i{
+    font-size: 28px;
+    padding-right: 12px;
+  }
+
+  .features .nav-link h4{
+    display: block !important;
+    font-size: 16px;
+    line-height: 1.1;
+    margin: 0;
+  }
+}
