@@ -462,3 +462,21 @@ main, section, .section{
         z-index: 2147483647 !important;
     }
 }
+#hero.hero p.hero-subtitle{
+    font-size: 2.15rem;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: 0.4px;
+    text-align: center;
+
+    align-self: stretch;   /* ✅ force l’item flex à s’étirer */
+    width: 100%;
+    max-width: 100%;
+}
+
+#pk-tab-tips .col-lg-6.text-center img{
+    max-height: 450px;   /* ajuste: 220 / 260 / 300 / 350 */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* évite que ça coupe */
+}
